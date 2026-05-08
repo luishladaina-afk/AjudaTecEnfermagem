@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Utilitário</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+/* ocult */
+.ocult {
+    display: none;
+    padding: 15px;
+}
+
+.ativa {
+    display: block;
+}
+
+/* TITULO */
+.titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* BOTÕES */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.card i {
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+/* BOTÃO VOLTAR */
+.voltar {
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    color: #007bff;
+}
+
+
+#tela{
+    padding:20px;
+    font-family:Arial;
+}
+
+#conteinne{
+    max-width:500px;
+    margin:auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Título */
+h1{
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+/* Labels */
+#conteinne label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-weight:bold;
+    color:#444;
+}
+
+/* select/input */
+#conteinne select, input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+/* Botões */
+#conteinne button{
+    width:48%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:20px;
+    transition:0.3s;
+}
+
+#conteinne button:first-child{
+    background:#28a745;
+    color:white;
+}
+
+#conteinne button:first-child:hover{
+    background:#218838;
+}
+
+#conteinne button:last-child{
+    background:#dc3545;
+    color:white;
+}
+
+#conteinne button:last-child:hover{
+    background:#c82333;
+}
+
+/* Resultado */
+.resposta{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    background:#f4f4f4;
+}
+
+/* Botões lado a lado */
+#conteinne .botoes{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+
+
+/* CALCULADORA */
+
+#conteinneCalculadora{
+    width:100%;
+    max-width:350px;
+    margin:20px auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Campo resultado */
+#conteinneCalculadora .resposta{
+    width:100%;
+    height:60px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:#f1f1f1;
+    font-size:28px;
+    text-align:right;
+    padding:10px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+/* Grade dos botões */
+#conteinneCalculadora .botoesCalc{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:10px;
+}
+
+/* Botões */
+#conteinneCalculadora button{
+    width:100%;
+    height:60px;
+    border:none;
+    border-radius:12px;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.2s;
+    background:#e9e9e9;
+    font-weight:bold;
+}
+
+/* Hover */
+#conteinneCalculadora button:hover{
+    transform:scale(1.03);
+    opacity:0.9;
+}
+
+/* Operadores */
+#conteinneCalculadora .operador{
+    background:#007bff;
+    color:#fff;
+}
+
+/* Limpar */
+#conteinneCalculadora .limpar{
+    background:#dc3545;
+    color:#fff;
+}
+
+/* Igual */
+#conteinneCalculadora .igual{
+    background:#28a745;
+    color:#fff;
+}
+
+/* Botões memória */
+#conteinneCalculadora .memoria{
+    background:#6c757d;
+    color:white;
+}
+
+
+
+/* Responsivo */
+@media(max-width:600px){
+
+    #conteinneCalculadora{
+        width:95%;
+        padding:15px;
+    }
+
+    #conteinneCalculadora button{
+        height:55px;
+        font-size:20px;
+    }
+
+    #conteinneCalculadora .resposta{
+        height:55px;
+        font-size:24px;
+    }
+}
+
+
+/* Responsivo */
+@media(max-width:600px){
+
+    #conteinne{
+        padding:15px;
+    }
+
+    /* Apenas os botões ficam em coluna */
+    #conteinne .botoes{
+        flex-direction:column;
+    }
+
+    #conteinne .botoes button{
+        width:100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div id="menu" class="ocult ativa">
+    <!-- Escalas -->
+<div class="titulo">Escalas</div>
+<div class="container">
+
+    <div class="card" onclick="abrirTela('telaMews')"><i class="fas fa-satellite-dish"></i><span>Mews</span></div>
+    <div class="card" onclick="abrirTela('telaGlasgow')"><i class="fas fa-brain"></i><span>Glasgow</span></div>
+    <div class="card" onclick="abrirTela('telaApgar')"><i class="fas fa-cogs"></i><span>Apgar</span></div>
+    <div class="card"><i class="fas fa-meteor"></i><span>Gasometria</span></div>
+
+    <div class="card" onclick="abrirTela('telaCorona')"><i class="fas fa-weight"></i><span>Corona</span></div>
+    <div class="card" onclick="abrirTela('telaGault')"><i class="fas fa-compass"></i><span>Crockroft Gault / Tomo</span></div>
+    <div class="card" onclick="abrirTela('telaPAM')"><i class="fas fa-hand-holding-heart"></i><span>Pressao Arterial Média</span></div>
+    <div class="card"><i class="fas fa-edit"></i><span>Manchester</span></div>
+
+</div>
+<!-- UTILITÁRIOS -->
+<div class="titulo">Utilitários</div>
+<div class="container">
+
+    <div class="card" onclick="abrirTela('telaCalculadora')"><i class="fas fa-calculator"></i><span>Calculadora</span></div>
+    <div class="card" onclick="abrirTela('telaRegra3')"><i class="fas fa-divide"></i><span>Regra de 3</span></div>
+    <div class="card"><i class="fas fa-percent"></i><span>Porcentagem</span></div>
+    <div class="card"><i class="fas fa-receipt"></i><span>Dividir Conta</span></div>
+
+    <div class="card"><i class="fas fa-weight"></i><span>Conversor</span></div>
+    <div class="card"><i class="fas fa-ruler"></i><span>Medidas</span></div>
+    <div class="card"><i class="fas fa-clock"></i><span>Tempo</span></div>
+    <div class="card"><i class="fas fa-coins"></i><span>Moedas</span></div>
+
+</div>
+
+</div>
+
+<!-- Mews -->
+<div id="telaMews" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Mews</h1>
+<div id="conteinne">
+    <div class="conteinne">
+        <Label>Frequencia Respiratoria</Label>
+        <input type="text" name="resp">
+        <Label>Pressao Arterial Sisrolica</Label>
+        <input type="text" name="pas">
+        <Label>Frequencia Cardiaca</Label>
+        <input type="text" name="fc">
+        <Label>Temperatura</Label>
+        <input type="text" name="temp">
+        <Label>Saturação O²</Label>
+        <input type="text" name="satu">
+        <Label>Sistema Nervoso Central</Label>
+        <select name="snc">
+            <option value="7">Selecionar</option>
+            <option value="1">Agitado Confuso</option>
+            <option value="0">Alerta</option>
+            <option value="1">Responde a Estimulo Verbais</option>
+            <option value="2">Responde Estimulo Doloroso</option>
+            <option value="3">Sem Resposta Inconciente</option>
+        </select>
+    </div>
+    <div class="botoes">
+        <button class="btn_processar conteinne" onclick="processarMews()">Processar</button>
+        <button class="btn_limpar conteinne" onclick="limparMews()">Limpar</button>
+    </div>
+     <input style="text-align: center;" type="text" name="resposta" id="mewaResposta" class="resposta">
+</div>
+</div>
+
+<!-- GLASGOW -->
+<div id="telaGlasgow" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Glasgow</h1>
+<div id="conteinne">
+    <div class="conteinne">
+      <Label>Resposta Motora</Label>
+        <select name="motora">
+            <option value="7">Selecionar</option>
+            <option value="6">Obedece Comandos</option>
+            <option value="5">Localiza Estumulos</option>
+            <option value="4">Flexao Normal</option>
+            <option value="3">Flexao Anormal</option>
+            <option value="2">Estensao Normal</option>
+            <option value="1">Nenhuma</option>
+        </select>
+      <Label>Resposta Verbal</Label>
+        <select name="verbal">
+            <option value="7">Selecionar</option>
+            <option value="5">Orientada</option>
+            <option value="4">Confusa</option>
+            <option value="3">Palavras Soltas</option>
+            <option value="2">Verbaliza Sons</option>
+            <option value="1">Nenhuma</option>
+        </select>
+      <Label>Abertura Ocular</Label>
+        <select name="ocular">
+            <option value="7">Selecionar</option>
+            <option value="4">Espontanea</option>
+            <option value="3">Ao estimulo Doloroso</option>
+            <option value="2">Estimulo Pressao</option>
+            <option value="1">Nenhuma</option>
+        </select>
+      <Label>Atividade Pupilar</Label>
+        <select name="pupilar">
+            <option value="7">Selecionar</option>
+            <option value="-2">Inexistente</option>
+            <option value="-1">Unilateral</option>
+            <option value="0">Bilateral</option>
+        </select>
+    </div>
+    <div class="botoes">
+        <button onclick="processarGlasgow()">Processar</button>
+        <button onclick="limparGlasgow()">Limpar</button>
+    </div>
+    <input style="text-align: center;" type="text" name="resposta" id="glasgowResposta" class="resposta">
+</div>
+</div>
+
+
+
+<!-- Apgar -->
+<div id="telaApgar" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Apgar</h1>
+<div id="conteinne">
+    <div class="conteinne">
+      <Label>Aparencia</Label>
+        <select name="aparencia">
+            <option value="7">Selecionar</option>
+            <option value="0">Cianose ou Palidez</option>
+            <option value="1">Cianose Extremidades</option>
+            <option value="2">Sem Cianose</option>
+        </select>
+      <Label>Pulso</Label>
+        <select name="pulso">
+            <option value="7">Selecionar</option>
+            <option value="0">Sem Pulso</option>
+            <option value="1">Menor 100 Batimentos</option>
+            <option value="2">Maior 100 Batimentos</option>
+        </select>
+      <Label>Gesticulação</Label>
+        <select name="gesto">
+            <option value="7">Selecionar</option>
+            <option value="0">Sem resposta Estimulos</option>
+            <option value="1">Careta ou estimulo Agressivo</option>
+            <option value="2">Choro vigoroso toose ou espirro</option>
+        </select>
+      <Label>Atividade</Label>
+        <select name="atividade">
+            <option value="7">Selecionar</option>
+            <option value="0">Nenhuma ou pouca atividade</option>
+            <option value="1">Alguns Movimenos em extremidades</option>
+            <option value="2">Muita Atividade</option>
+        </select>
+              <Label>Respiração</Label>
+        <select name="respiracao">
+            <option value="7">Selecionar</option>
+            <option value="0">Ausente</option>
+            <option value="1">Fraco/ Lenta irregular</option>
+            <option value="2">Forte Chovo Vigoroso</option>
+        </select>
+    </div>
+    <div class="botoes">
+        <button onclick="processarApgar()">Processar</button>
+        <button onclick="limparApgar()">Limpar</button>
+    </div>
+    <input style="text-align: center;" type="text" name="resposta" id="apgarResposta" class="resposta">
+</div>
+</div>
+
+<!-- Crockroft Gault / Tomo -->
+<div id="telaGault" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Crockroft Gault / Tomo</h1>
+<div id="conteinne">
+    <div class="conteinne">
+<form>
+    <label><b>Sexo:</b></label>
+
+    <div style="display:inline-flex; align-items:center; gap:6px; margin-top:5px;">
+        
+        <div style="display:flex; align-items:center;">
+            <input type="radio" name="OPCAO" value="masc" id="masc">
+            <label for="masc">Masculino</label>
+        </div>
+
+        <div style="display:flex; align-items:center;">
+            <input type="radio" name="OPCAO" value="fem" id="fem">
+            <label for="fem">Feminino</label>
+        </div>
+
+    </div>
+</form>
+        <Label>Idade</Label>
+        <input type="text" name="idade">
+        <Label>Peso</Label>
+        <input type="text" name="peso">
+        <Label>Creatinina</Label>
+        <input type="text" name="creat">
+    </div>
+    <div class="botoes">
+        <button onclick="processarGault()">Processar</button>
+        <button onclick="limparGault()">Limpar</button>
+    </div>
+    <input style="text-align: center;" type="text" name="resposta" id="gaultResposta"  class="resposta">
+</div>
+</div>
+
+
+<!-- Corona -->
+<div id="telaCorona" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Corona</h1>
+<div id="conteinne">
+    <div class="conteinne">
+
+<table>
+    <tr>
+        <td>Tem Febre?</td>
+        <td><input type="checkbox" value="5" name="a"></td>
+    </tr>
+    <tr>
+        <td>Tem Cefaleia?</td>
+        <td><input type="checkbox" value="1" name="b"></td>
+    </tr>
+    <tr>
+        <td>Secreção/ Espirro?</td>
+        <td><input type="checkbox" value="1" name="c"></td>
+    </tr>
+    <tr>
+        <td>Dor de Garganta?</td>
+        <td><input type="checkbox" value="1" name="d"></td>
+    </tr>
+    <tr>
+        <td>Tosse seca?</td>
+        <td><input type="checkbox" value="3" name="e"></td>
+    </tr>
+    <tr>
+        <td>Dificuldade para respirar?</td>
+        <td><input type="checkbox" value="10" name="f"></td>
+    </tr>
+    <tr>
+        <td>Dor no Corpo?</td>
+        <td><input type="checkbox" value="1" name="g"></td>
+    </tr>
+    <tr>
+        <td>Diarreia?</td>
+        <td><input type="checkbox" value="1" name="h"></td>
+    </tr>
+
+    <tr>
+        <td>Viajou nos ultimos 14 dias?</td>
+        <td><input type="checkbox" value="3" name="i"></td>
+    </tr>
+
+    <tr>
+        <td>Esteve em contato com alguma pessoa Covid Positivo?</td>
+        <td><input type="checkbox" value="10" name="j"></td>
+    </tr>
+</table>
+    <div class="botoes">
+        <button onclick="processarCorona()">Processar</button>
+        <button onclick="limparCorona()">Limpar</button>
+    </div>
+    <input style="text-align: center;" type="text" name="resposta" id="coronaResposta"  class="resposta">
+</div>
+</div>
+</div>
+
+
+
+<!-- Pressao Arerial Media -->
+<div id="telaPAM" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Pressão Arterial Média</h1>
+<div id="conteinne">
+    <div class="conteinne">
+        <Label>Pressao Arterial Sistolica</Label>
+        <input type="number" name="PAS">
+        <Label>Pressao Arterial Diastolica</Label>
+        <input type="number" name="PAD">
+    </div>
+    <div class="botoes">
+        <button type="button" onclick="processarPAM()">Processar</button>
+        <button type="button" onclick="limparPAM()">Limpar</button>
+    </div>
+    <input style="text-align: center;" type="text" name="resposta" id="pamResposta"  class="resposta">
+</div>
+</div>
+
+
+
+<!-- Calculadora -->
+
+<div id="telaCalculadora" class="ocult">
+
+    <div class="voltar" onclick="voltar()">
+        <i class="fas fa-arrow-circle-left"></i> Voltar
+    </div>
+
+    <h1>Calculadora</h1>
+
+    <div id="conteinneCalculadora">
+
+        <!-- Display -->
+        <input 
+            type="text"
+            id="display"
+            class="resposta"
+            readonly
+        >
+
+        <!-- Botões -->
+        <div class="botoesCalc">
+            <!-- Botões Memória -->
+            <button type="button" class="memoria" onclick="memoriaMais()">M+</button>
+            <button type="button" class="memoria" onclick="memoriaMenos()">M-</button>
+            <button type="button" class="memoria" onclick="memoriaResultado()">MR</button>
+            <button type="button" class="memoria" onclick="memoriaClear()">MC</button>
+
+            <button type="button" onclick="add('7')">7</button>
+            <button type="button" onclick="add('8')">8</button>
+            <button type="button" onclick="add('9')">9</button>
+            <button type="button" class="operador" onclick="add('/')">÷</button>
+
+            <button type="button" onclick="add('4')">4</button>
+            <button type="button" onclick="add('5')">5</button>
+            <button type="button" onclick="add('6')">6</button>
+            <button type="button" class="operador" onclick="add('*')">×</button>
+
+            <button type="button" onclick="add('1')">1</button>
+            <button type="button" onclick="add('2')">2</button>
+            <button type="button" onclick="add('3')">3</button>
+            <button type="button" class="operador" onclick="add('-')">−</button>
+
+            <button type="button" onclick="add('0')">0</button>
+            <button type="button" class="limpar" onclick="limparCalc()">C</button>
+            <button type="button" class="igual" onclick="calcular()">=</button>
+            <button type="button" class="operador" onclick="add('+')">+</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- REGRA DE 3 -->
+<div id="telaRegra3" class="ocult">
+
+<div class="voltar" onclick="voltar()">⬅ Voltar</div>
+
+<h3>Regra de 3</h3>
+
+<input type="number" id="a" placeholder="Valor A"><br><br>
+<input type="number" id="b" placeholder="Valor B"><br><br>
+<input type="number" id="c" placeholder="Valor C"><br><br>
+
+<button onclick="regra3()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+function abrirTela(id){
+    document.querySelectorAll('.ocult').forEach(t => t.classList.remove('ativa'));
+    document.getElementById(id).classList.add('ativa');
+}
+
+function voltar(){
+    abrirTela('menu');
+}
+
+// Escaka News 
+
+
+function processarMews() {
+    const resp = parseFloat(document.querySelector('input[name="resp"]').value);
+    const pas = parseFloat(document.querySelector('input[name="pas"]').value);
+    const fc = parseFloat(document.querySelector('input[name="fc"]').value);
+    const temp = parseFloat(document.querySelector('input[name="temp"]').value);
+    const satu = parseFloat(document.querySelector('input[name="satu"]').value);
+    const snc = parseInt(document.querySelector('select[name="snc"]').value);
+
+    const resposta = document.getElementById('MewsResposta');
+
+    // Validação
+    if (
+        isNaN(resp) ||
+        isNaN(pas) ||
+        isNaN(fc) ||
+        isNaN(temp) ||
+        isNaN(satu) ||
+        snc === 7
+    ) {
+        alert("Preencha todos os campos corretamente!");
+        return;
+    }
+
+    let classificacaofr = 0;
+    let classificacaopas = 0;
+    let classificacaofc = 0;
+    let classificacaotemp = 0;
+    let classificacaosatu = 0;
+
+    // FR
+    if (resp <= 8) classificacaofr = 2;
+    else if (resp <= 18) classificacaofr = 0;
+    else if (resp <= 25) classificacaofr = 1;
+    else if (resp <= 29) classificacaofr = 2;
+    else classificacaofr = 3;
+
+    // PAS
+    if (pas <= 70) classificacaopas = 3;
+    else if (pas <= 80) classificacaopas = 2;
+    else if (pas <= 100) classificacaopas = 1;
+    else if (pas <= 179) classificacaopas = 0;
+    else if (pas <= 199) classificacaopas = 2;
+    else classificacaopas = 3;
+
+    // FC
+    if (fc <= 40) classificacaofc = 2;
+    else if (fc <= 50) classificacaofc = 1;
+    else if (fc <= 100) classificacaofc = 0;
+    else if (fc <= 110) classificacaofc = 1;
+    else if (fc <= 129) classificacaofc = 2;
+    else classificacaofc = 3;
+
+    // TEMP
+    if (temp <= 35) classificacaotemp = 2;
+    else if (temp <= 36) classificacaotemp = 1;
+    else if (temp <= 37.9) classificacaotemp = 0;
+    else if (temp <= 38.9) classificacaotemp = 1;
+    else classificacaotemp = 2;
+
+    // SAT
+    if (satu <= 91) classificacaosatu = 3;
+    else if (satu <= 93) classificacaosatu = 2;
+    else if (satu <= 95) classificacaosatu = 1;
+    else classificacaosatu = 0;
+
+    // Soma total (inclui SNC)
+    let total =
+        classificacaofr +
+        classificacaopas +
+        classificacaofc +
+        classificacaotemp +
+        classificacaosatu +
+        snc;
+
+    resposta.value = " Score " + total;
+}
+
+function limparNews() {
+    document.querySelectorAll('#conteinne input').forEach(input => {
+        input.value = "";
+    });
+
+    document.querySelector('select[name="snc"]').value = "7";
+
+    const resposta = document.getElementById('MewsResposta');
+    resposta.value = "";
+}
+
+
+
+
+/*Escala Glasglow*/
+
+
+function processarGlasgow() {
+    const motora = document.querySelector('select[name="motora"]');
+    const verbal = document.querySelector('select[name="verbal"]');
+    const ocular = document.querySelector('select[name="ocular"]');
+    const pupilar = document.querySelector('select[name="pupilar"]');
+    const resposta = document.getElementById('glasgowResposta');
+
+    // Validação
+    if (
+        motora.value == "7" ||
+        verbal.value == "7" ||
+        ocular.value == "7" ||
+        pupilar.value == "7"
+    ) {
+        alert("Selecione todas as opções antes de processar!");
+        return;
+    }
+
+    // Soma
+    let total =
+        parseInt(motora.value) +
+        parseInt(verbal.value) +
+        parseInt(ocular.value) +
+        parseInt(pupilar.value);
+
+    // Classificação
+    let classificacao = "";
+    let cor = "";
+
+    if (total >= 3 && total <= 8) {
+        classificacao = "Grave";
+        cor = "red";
+    } else if (total >= 9 && total <= 12) {
+        classificacao = "Moderado";
+        cor = "orange";
+    } else if (total >= 13) {
+        classificacao = "Leve";
+        cor = "green";
+    }
+
+    // Mostrar resultado
+    resposta.value = total + " - " + classificacao;
+    resposta.style.color = cor;
+    resposta.style.fontWeight = "bold";
+}
+
+function limparGlasgow() {
+    document.querySelectorAll('#conteinne select').forEach(select => {
+        select.value = "7";
+    });
+
+    const resposta = document.getElementById('glasgowResposta');
+    resposta.value = "";
+    resposta.style.color = "black";
+}
+
+
+
+/* APGAR */
+
+
+function processarApgar() {
+    const aparencia = document.querySelector('select[name="aparencia"]');
+    const pulso = document.querySelector('select[name="pulso"]');
+    const gesto = document.querySelector('select[name="gesto"]');
+    const atividade = document.querySelector('select[name="atividade"]');
+    const respiracao = document.querySelector('select[name="respiracao"]');
+    const resposta = document.getElementById('apgarResposta');
+
+    // Validação
+    if (
+        aparencia.value == "7" ||
+        pulso.value == "7" ||
+        gesto.value == "7" ||
+        atividade.value == "7" ||
+        respiracao.value == "7" 
+        
+    ) {
+        alert("Selecione todas as opções antes de processar!");
+        return;
+    }
+
+    // Soma
+    let total =
+        parseInt(aparencia.value) +
+        parseInt(pulso.value) +
+        parseInt(gesto.value) +
+        parseInt(atividade.value)+
+        parseInt(respiracao.value);
+
+    // Classificação
+    let classificacao = "";
+    let cor = "";
+
+    if (total >= 0 && total <= 3) {
+        classificacao = "Asfixia Grave";
+        cor = "red";
+    } else if (total >= 4 && total <= 7) {
+        classificacao = "Afixia Moderada";
+        cor = "orange";
+    } else if (total >= 8) {
+        classificacao = "Boa Vitabilidade";
+        cor = "green";
+    }
+
+    // Mostrar resultado
+    resposta.value = total + " - " + classificacao;
+    resposta.style.color = cor;
+    resposta.style.fontWeight = "bold";
+}
+
+function limparApgar() {
+    document.querySelectorAll('#conteinne select').forEach(select => {
+        select.value = "7";
+    });
+
+    const resposta = document.getElementById('apgarResposta');
+    resposta.value = "";
+    resposta.style.color = "black";
+}
+
+
+function processarCorona() {
+
+    // Seleciona todos os checkboxes da tela Corona
+    let checks = document.querySelectorAll('#telaCorona input[type="checkbox"]');
+
+    let total = 0;
+
+    // Soma os valores marcados
+    checks.forEach(function(item){
+        if(item.checked){
+            total += parseInt(item.value);
+        }
+    });
+
+    // Campo resposta
+    let resposta = document.getElementById("coronaResposta");
+
+    // Classificação
+    if(total >= 1 && total <= 9){
+
+        resposta.value = "RISCO BAIXO - " + total + " Pontos";
+        resposta.style.background = "blue";
+        resposta.style.color = "white";
+
+    }else if(total >= 10 && total <= 19){
+
+        resposta.value = "RISCO MÉDIO - " + total + " Pontos";
+        resposta.style.background = "yellow";
+        resposta.style.color = "black";
+
+    }else if(total >= 20 && total <= 36){
+
+        resposta.value = "RISCO ALTO - " + total + " Pontos";
+        resposta.style.background = "red";
+        resposta.style.color = "white";
+
+    }else{
+
+        resposta.value = "SEM CLASSIFICAÇÃO";
+        resposta.style.background = "#ccc";
+        resposta.style.color = "black";
+
+    }
+}
+
+
+// Limpar formulário
+function limparCorona(){
+
+    let checks = document.querySelectorAll('#telaCorona input[type="checkbox"]');
+
+    checks.forEach(function(item){
+        item.checked = false;
+    });
+
+    let resposta = document.getElementById("coronaResposta");
+
+    resposta.value = "";
+    resposta.style.background = "";
+    resposta.style.color = "";
+
+}
+
+
+
+
+/* Crockcroft Gault */
+
+function processarGault() {
+
+    const sexo = document.querySelector('input[name="OPCAO"]:checked');
+
+    const idade = parseFloat(document.querySelector('input[name="idade"]').value);
+    const peso = parseFloat(document.querySelector('input[name="peso"]').value);
+    const creat = parseFloat(document.querySelector('input[name="creat"]').value);
+
+    const resposta = document.getElementById('gaultResposta');
+
+    // Validação
+    if (
+        !sexo ||
+        isNaN(idade) ||
+        isNaN(peso) ||
+        isNaN(creat)
+    ) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    let valor = ((140 - idade) * peso) / (creat * 72);
+
+    // Feminino multiplica por 0.85
+    if (sexo.value == "fem") {
+        valor = valor * 0.85;
+    }
+
+    let classificacao = "";
+    let cor = "";
+
+    // Classificação
+    if (valor >= 90) {
+        classificacao = "Função Renal Normal";
+        cor = "green";
+
+    } else if (valor >= 60) {
+        classificacao = "Leve Redução";
+        cor = "orange";
+
+    } else if (valor >= 30) {
+        classificacao = "Moderada Redução";
+        cor = "darkorange";
+
+    } else {
+        classificacao = "Insuficiência Renal Grave";
+        cor = "red";
+    }
+
+    // Resultado
+    resposta.value = valor.toFixed(2) + " mL/min - " + classificacao;
+
+    resposta.style.color = cor;
+    resposta.style.fontWeight = "bold";
+}
+
+
+function limparGault() {
+
+    // Limpa radio
+    document.querySelectorAll('input[name="OPCAO"]').forEach(radio => {
+        radio.checked = false;
+    });
+
+    // Limpa campos
+    document.querySelector('input[name="idade"]').value = "";
+    document.querySelector('input[name="peso"]').value = "";
+    document.querySelector('input[name="creat"]').value = "";
+
+    // Limpa resposta
+    const resposta = document.getElementById('gaultResposta');
+
+    resposta.value = "";
+    resposta.style.color = "black";
+}
+
+
+
+
+/* Pressao arterial media */
+
+function processarPAM() {
+
+    
+    const PAS = parseFloat(document.querySelector('input[name="PAS"]').value);
+    const PAD = parseFloat(document.querySelector('input[name="PAD"]').value);
+
+
+    const resposta = document.getElementById('pamResposta');
+
+    // Validação
+    if (
+        isNaN(PAS) ||
+        isNaN(PAD) 
+      
+    ) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    let valor = (PAS + (PAD * 2)) / 3;
+
+
+    let classificacao = "";
+    let cor = "";
+
+    // Classificação
+    if (valor >= 80) {
+        classificacao = "Pressao Arterial Alta Confirmar!!!";
+        cor = "red";
+
+    } else if (valor >= 60) {
+        classificacao = "Pressao Arterial boa";
+        cor = "green";
+
+    } else if (valor <= 59) {
+        classificacao = "Pressao Arterial baixa";
+        cor = "red";
+
+    } 
+
+    // Resultado
+    resposta.value = valor.toFixed(2) + " - " + classificacao;
+
+    resposta.style.color = cor;
+    resposta.style.fontWeight = "bold";
+}
+
+
+function limparPAM() {
+
+    // Limpa campos
+    document.querySelector('input[name="PAS"]').value = "";
+    document.querySelector('input[name="PAD"]').value = "";
+
+
+    // Limpa resposta
+    const resposta = document.getElementById('pamResposta');
+
+    resposta.value = "";
+    resposta.style.color = "black";
+}
+
+
+/* CALCULADORA */
+function add(valor){
+    document.getElementById('display').value += valor;
+}
+
+function limpar(){
+    document.getElementById('display').value = '';
+}
+
+function calcular(){
+    try {
+        let resultado = eval(document.getElementById('display').value);
+        document.getElementById('display').value = resultado;
+    } catch {
+        alert("Erro");
+    }
+}
+
+
+const display = document.getElementById("display");
+
+// Adicionar valores
+function add(valor){
+    display.value += valor;
+}
+
+// Limpar
+function limparCalc(){
+    display.value = "";
+}
+
+// Calcular
+function calcular(){
+
+    try{
+
+        let resultado = eval(display.value);
+
+        if(resultado === undefined || isNaN(resultado)){
+            display.value = "Erro";
+        }else{
+            display.value = resultado;
+        }
+
+    }catch{
+
+        display.value = "Erro";
+
+    }
+
+}
+
+/* MEMÓRIA CALCULADORA */
+
+let memoriaMaisValor = 0;
+let memoriaMenosValor = 0;
+
+// M+
+function memoriaMais(){
+
+    let valor = parseFloat(display.value);
+
+    if(!isNaN(valor)){
+        memoriaMaisValor += valor;
+    }
+
+}
+
+// M-
+function memoriaMenos(){
+
+    let valor = parseFloat(display.value);
+
+    if(!isNaN(valor)){
+        memoriaMenosValor += valor;
+    }
+
+}
+
+// MR
+function memoriaResultado(){
+
+    let resultado = memoriaMaisValor - memoriaMenosValor;
+
+    display.value = resultado;
+
+}
+
+// MC
+function memoriaClear(){
+
+    memoriaMaisValor = 0;
+    memoriaMenosValor = 0;
+
+    display.value = "";
+
+}
+
+
+
+/* REGRA DE 3 */
+function regra3(){
+    let a = parseFloat(document.getElementById('a').value);
+    let b = parseFloat(document.getElementById('b').value);
+    let c = parseFloat(document.getElementById('c').value);
+
+    let resultado = (b * c) / a;
+
+    document.getElementById('resultado').innerText = "Resultado: " + resultado;
+}
+</script>
+
+</body>
+</html>
