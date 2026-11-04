@@ -36,6 +36,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+
 }
 
 /* BOTÕES */
@@ -52,6 +53,7 @@ body {
     font-size: 35px;
     margin-bottom: 10px;
     color: #007bff;
+    margin-right: 15px;
 }
 
 /* BOTÃO VOLTAR */
@@ -75,6 +77,12 @@ body {
     padding:20px;
     border-radius:15px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
+   
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Título */
@@ -221,11 +229,816 @@ h1{
     color:#fff;
 }
 
+
 /* Botões memória */
-#conteinneCalculadora .memoria{
-    background:#6c757d;
-    color:white;
+#conteinneCalculadora .memoria {
+    background: #6c757d;
+    color: white;
 }
+
+/* Container das memórias */
+.memoria-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Campos ocultos inicialmente */
+.memoria-item {
+    display: none;
+    position: relative;
+    width: 50%;
+}
+
+/* Inputs */
+.memoria-item input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px 10px 42px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* Sinais M+ e M- */
+.memoria-item span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* M- vermelho */
+.memoria-item.menos span {
+    color: #e53935;
+}
+
+.memoria-item.menos input {
+    border: 2px solid #e53935;
+}
+
+/* M+ verde */
+.memoria-item.mais span {
+    color: #2eaa55;
+}
+
+.memoria-item.mais input {
+    border: 2px solid #2eaa55;
+}
+
+
+
+
+
+/* REGRA DE 3 */
+
+.regra3-container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.regra3-linha {
+    display: grid;
+    grid-template-columns: 1fr 45px 1fr;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.regra3-campo {
+    width: 100%;
+    padding: 14px 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 17px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.regra3-seta {
+    font-size: 25px;
+    color: #007bff;
+    text-align: center;
+    font-weight: bold;
+    align-self: center;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.regra3-resultado {
+    background: #e8f5e9;
+    border: 2px solid #28a745;
+    font-weight: bold;
+    color: #218838;
+}
+
+.regra3-container .botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.regra3-container button {
+    width: 50%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.regra3-container button:first-child {
+    background: #28a745;
+}
+
+.regra3-container button:last-child {
+    background: #dc3545;
+}
+
+.regra3-container label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+
+/* Sorteios */
+
+/* CARDS */
+.sorteador-card {
+    background: white;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.sorteador-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* CAMPOS */
+.sorteador-campos {
+    display: flex;
+    gap: 12px;
+}
+
+.sorteador-campos div {
+    flex: 1;
+    min-width: 0;
+}
+
+.sorteador-card label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.sorteador-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* RESULTADO */
+.sorteador-resultado {
+    background: #eef5ff;
+    color: #1765bd;
+    border-radius: 10px;
+    padding: 20px 10px;
+    margin: 18px 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    min-height: 40px;
+    overflow-wrap: anywhere;
+}
+
+/* BOTÕES */
+.sorteador-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.sorteador-botoes button,
+.sorteador-adicionar button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1765bd;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.sorteador-botoes .btn-limpar {
+    background: #dc3545;
+}
+
+/* ADICIONAR NOME */
+.sorteador-adicionar {
+    display: flex;
+    gap: 8px;
+}
+
+.sorteador-adicionar input {
+    flex: 1;
+    min-width: 0;
+}
+
+.sorteador-adicionar button {
+    flex: 0 0 50px;
+    font-size: 20px;
+}
+
+/* LISTA */
+.sorteador-lista-titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+#totalNomes {
+    color: #1765bd;
+}
+
+.lista-sorteio {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.lista-sorteio li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.lista-sorteio .lista-vazia {
+    text-align: center;
+    color: #888;
+}
+
+
+#resultadoNumero {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2196F3;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Durante o sorteio */
+#resultadoNumero.animando {
+    color: #ff9800;
+    animation: pulsar 0.15s infinite alternate;
+}
+
+/* Quando o sorteio terminar */
+#resultadoNumero.finalizado {
+    color: #4CAF50;
+    transform: scale(1.0);
+}
+
+@keyframes pulsar {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+
+
+#resultadoNome {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    color: #2196F3;
+    transition: transform 0.3s ease;
+}
+
+/* Durante o sorteio */
+#resultadoNome.animando {
+    color: #ff9800;
+    animation: pulsarNome 0.15s infinite alternate;
+}
+
+/* Resultado final */
+#resultadoNome.finalizado {
+    color: #4CAF50;
+    animation: vencedor 0.6s ease;
+}
+
+@keyframes pulsarNome {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes vencedor {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* mgkgmin */
+
+
+.medicamento-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    margin: 15px 0;
+    box-sizing: border-box;
+}
+
+/* Primeira linha: MG, ML e volume */
+.linha-concentracao {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.campo-med {
+    min-width: 0;
+}
+
+.medicamento-card label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.medicamento-card input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.medicamento-card input:focus {
+    border-color: #1765bd;
+    box-shadow: 0 0 4px rgba(23,101,189,0.25);
+}
+
+/* Segunda e terceira linhas */
+.linha-campo {
+    margin-bottom: 15px;
+}
+
+.linha-campo input {
+    width: 100%;
+}
+
+/* SELETOR DE MEDICAÇÃO */
+.seletor-medicacao {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.btn-medicacao {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #1765bd;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-medicacao span {
+    flex: 1;
+    text-align: left;
+}
+
+.lista-medicacoes {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.lista-medicacoes.ativa {
+    display: block;
+}
+
+.lista-medicacoes button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: white;
+    color: #333;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.lista-medicacoes button:hover {
+    background: #eef5ff;
+    color: #1765bd;
+}
+
+/* PADRONIZAR TODOS OS BOTÕES DA LISTA DE MEDICAÇÕES */
+.lista-medicacoes button,
+.lista-medicacoes button:first-child,
+.lista-medicacoes button:last-child {
+    background: #fff !important;
+    background-color: #fff !important;
+    color: #333 !important;
+    border: none !important;
+    border-bottom: 1px solid #eee !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-weight: normal !important;
+}
+
+/* Efeito ao passar o mouse */
+.lista-medicacoes button:hover {
+    background: #f1f1f1 !important;
+    color: #333 !important;
+}
+
+
+
+
+/* PADRONIZAR TODOS OS BOTÕES DA divisao conta */
+
+
+    #amigos{
+        display:none;
+    }
+    #produtos{
+        display:none;
+    }
+    #consumos{
+        display:none;
+    }
+    #divisao{
+        display:none;
+    }
+
+    
+/* DIVIDE CONTA */
+
+#telaDivideConta #conteinne {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    box-sizing: border-box;
+}
+
+#telaDivideConta h2 {
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+#telaDivideConta h3 {
+    text-align: center;
+    color: #28a745;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+#menudivideconta {
+
+/* MENU DIVIDE CONTA */
+
+#menudivideconta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin: 15px auto 25px;
+}
+
+/* BOTÕES DO MENU */
+
+#menudivideconta button {
+    width: 100% !important;
+    height: 55px;
+    margin: 0 !important;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: #007bff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    justify-self: stretch;
+}
+
+/* CORES DOS BOTÕES */
+
+#menudivideconta button {
+    width: 100% !important;
+    height: 55px;
+    margin: 0 !important;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: #007bff !important;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#menudivideconta button:hover {
+    background: #0056b3 !important;
+}
+
+/* EFEITO AO CLICAR */
+
+#menudivideconta button:active {
+    transform: scale(0.97);
+}
+
+/* CELULAR */
+
+@media(max-width: 600px) {
+    #menudivideconta {
+        gap: 12px;
+    }
+
+    #menudivideconta button {
+        height: 55px;
+        font-size: 14px;
+    }
+}
+
+}
+
+#menudivideconta button {
+    padding: 13px 5px;
+    border: none;
+    border-radius: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#menudivideconta button:hover {
+    background: #0056b3;
+    transform: scale(1.02);
+}
+
+/* SEÇÕES */
+
+#telaDivideConta #amigos,
+#telaDivideConta #produtos,
+#telaDivideConta #consumos,
+#telaDivideConta #divisao {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+/* INPUTS */
+
+#telaDivideConta input[type="text"],
+#telaDivideConta input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#telaDivideConta input:focus {
+    border-color: #007bff;
+}
+
+/* CHECKBOX GARÇOM */
+
+#telaDivideConta input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    accent-color: #007bff;
+}
+
+#telaDivideConta label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+/* BOTÕES ADICIONAR */
+
+#telaDivideConta .btn.add {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#telaDivideConta .btn.add:hover {
+    background: #218838;
+}
+
+/* TABELAS */
+
+#telaDivideConta table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+#telaDivideConta table th {
+    background: #007bff;
+    color: white;
+    padding: 12px 6px;
+    text-align: center;
+}
+
+#telaDivideConta table td {
+    padding: 11px 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+#telaDivideConta table tr:last-child td {
+    border-bottom: none;
+}
+
+/* TOTAL DA CONTA */
+
+#totalConta {
+    background: #e8f5e9;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: #218838;
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 600px) {
+
+    #telaDivideConta #conteinne {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #telaDivideConta #amigos,
+    #telaDivideConta #produtos,
+    #telaDivideConta #consumos,
+    #telaDivideConta #divisao {
+        padding: 10px;
+    }
+
+    #telaDivideConta table {
+        font-size: 12px;
+    }
+
+    #telaDivideConta table th,
+    #telaDivideConta table td {
+        padding: 9px 4px;
+    }
+
+}
+
+/* FORÇAR TODOS OS BOTÕES DO MENU DIVIDE CONTA AZUIS */
+
+#telaDivideConta #menudivideconta button,
+#telaDivideConta #menudivideconta button.btn,
+#telaDivideConta #menudivideconta button:nth-child(1),
+#telaDivideConta #menudivideconta button:nth-child(2),
+#telaDivideConta #menudivideconta button:nth-child(3),
+#telaDivideConta #menudivideconta button:nth-child(4) {
+
+    background-color: #007bff !important;
+    background: #007bff !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* Ao passar o mouse */
+#telaDivideConta #menudivideconta button:hover {
+    background: #0056b3 !important;
+}
+
+/* Ao clicar */
+#telaDivideConta #menudivideconta button:active {
+    background: #0056b3 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -296,6 +1109,17 @@ h1{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 
@@ -310,7 +1134,7 @@ h1{
     <div class="card" onclick="abrirTela('telaMews')"><i class="fas fa-satellite-dish"></i><span>Mews</span></div>
     <div class="card" onclick="abrirTela('telaGlasgow')"><i class="fas fa-brain"></i><span>Glasgow</span></div>
     <div class="card" onclick="abrirTela('telaApgar')"><i class="fas fa-cogs"></i><span>Apgar</span></div>
-    <div class="card"><i class="fas fa-meteor"></i><span>Gasometria</span></div>
+    <div class="card" onclick="abrirTela('telaGaso')"><i class="fas fa-meteor"></i><span>Gasometria</span></div>
 
     <div class="card" onclick="abrirTela('telaCorona')"><i class="fas fa-weight"></i><span>Corona</span></div>
     <div class="card" onclick="abrirTela('telaGault')"><i class="fas fa-compass"></i><span>Crockroft Gault / Tomo</span></div>
@@ -324,10 +1148,9 @@ h1{
 
     <div class="card" onclick="abrirTela('telaCalculadora')"><i class="fas fa-calculator"></i><span>Calculadora</span></div>
     <div class="card" onclick="abrirTela('telaRegra3')"><i class="fas fa-divide"></i><span>Regra de 3</span></div>
-    <div class="card"><i class="fas fa-percent"></i><span>Porcentagem</span></div>
-    <div class="card"><i class="fas fa-receipt"></i><span>Dividir Conta</span></div>
-
-    <div class="card"><i class="fas fa-weight"></i><span>Conversor</span></div>
+    <div class="card" onclick="abrirTela('telaSorteador')"><i class="fa-solid fa-rotate-right"></i><span>Sorteador</span></div>
+    <div class="card" onclick="abrirTela('telaDivideConta')"><i class="fas fa-receipt"></i><span>Dividir Conta</span></div>
+    <div class="card" onclick="abrirTela('telaMGKGMin')"><i class="fa-solid fa-scale-balanced"></i><span>Mcg / Kg / Min</span></div>
     <div class="card"><i class="fas fa-ruler"></i><span>Medidas</span></div>
     <div class="card"><i class="fas fa-clock"></i><span>Tempo</span></div>
     <div class="card"><i class="fas fa-coins"></i><span>Moedas</span></div>
@@ -370,6 +1193,8 @@ h1{
      <input style="text-align: center;" type="text" name="resposta" id="mewaResposta" class="resposta">
 </div>
 </div>
+
+
 
 <!-- GLASGOW -->
 <div id="telaGlasgow" class="ocult">
@@ -474,6 +1299,43 @@ h1{
 </div>
 </div>
 
+<!-- Corona -->
+<div id="telaCorona" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Corona</h1>
+<div id="conteinne">
+    <div class="conteinne">
+        <Label>Frequencia Respiratoria</Label>
+        <input type="text" name="resp">
+        <Label>Pressao Arterial Sisrolica</Label>
+        <input type="text" name="pas">
+        <Label>Frequencia Cardiaca</Label>
+        <input type="text" name="fc">
+        <Label>Temperatura</Label>
+        <input type="text" name="temp">
+        <Label>Saturação O²</Label>
+        <input type="text" name="satu">
+        <Label>Sistema Nervoso Central</Label>
+        <select name="snc">
+            <option value="7">Selecionar</option>
+            <option value="1">Agitado Confuso</option>
+            <option value="0">Alerta</option>
+            <option value="1">Responde a Estimulo Verbais</option>
+            <option value="2">Responde Estimulo Doloroso</option>
+            <option value="3">Sem Resposta Inconciente</option>
+        </select>
+    </div>
+    <div class="botoes">
+        <button class="btn_processar conteinne" onclick="processarMews()">Processar</button>
+        <button class="btn_limpar conteinne" onclick="limparMews()">Limpar</button>
+    </div>
+     <input style="text-align: center;" type="text" name="resposta" id="mewaResposta" class="resposta">
+</div>
+</div>
+
+
+
 <!-- Crockroft Gault / Tomo -->
 <div id="telaGault" class="ocult">
 
@@ -514,63 +1376,50 @@ h1{
 </div>
 
 
-<!-- Corona -->
-<div id="telaCorona" class="ocult">
+<!-- Gasometria -->
+<div id="telaGaso" class="ocult">
 
 <div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
-<h1>Corona</h1>
+<h1>Gasometria</h1>
 <div id="conteinne">
     <div class="conteinne">
 
 <table>
     <tr>
-        <td>Tem Febre?</td>
-        <td><input type="checkbox" value="5" name="a"></td>
+        <td>pH</td>
+        <td><input type="text" value="" name="a"></td>
     </tr>
     <tr>
-        <td>Tem Cefaleia?</td>
-        <td><input type="checkbox" value="1" name="b"></td>
+        <td>Pco²</td>
+        <td><input type="text" value="" name="b"></td>
     </tr>
     <tr>
-        <td>Secreção/ Espirro?</td>
-        <td><input type="checkbox" value="1" name="c"></td>
+        <td>PO²</td>
+        <td><input type="text" value="" name="c"></td>
     </tr>
     <tr>
-        <td>Dor de Garganta?</td>
-        <td><input type="checkbox" value="1" name="d"></td>
+        <td>Sat O²</td>
+        <td><input type="text" value="" name="d"></td>
     </tr>
     <tr>
-        <td>Tosse seca?</td>
-        <td><input type="checkbox" value="3" name="e"></td>
+        <td>BE</td>
+        <td><input type="text" value="" name="e"></td>
     </tr>
     <tr>
-        <td>Dificuldade para respirar?</td>
-        <td><input type="checkbox" value="10" name="f"></td>
+        <td>HCO²</td>
+        <td><input type="text" value="" name="f"></td>
     </tr>
     <tr>
-        <td>Dor no Corpo?</td>
-        <td><input type="checkbox" value="1" name="g"></td>
+        <td>FIO²</td>
+        <td><input type="text" value="" name="g"></td>
     </tr>
-    <tr>
-        <td>Diarreia?</td>
-        <td><input type="checkbox" value="1" name="h"></td>
-    </tr>
-
-    <tr>
-        <td>Viajou nos ultimos 14 dias?</td>
-        <td><input type="checkbox" value="3" name="i"></td>
-    </tr>
-
-    <tr>
-        <td>Esteve em contato com alguma pessoa Covid Positivo?</td>
-        <td><input type="checkbox" value="10" name="j"></td>
-    </tr>
+    
 </table>
     <div class="botoes">
-        <button onclick="processarCorona()">Processar</button>
-        <button onclick="limparCorona()">Limpar</button>
+        <button onclick="processarGaso()">Processar</button>
+        <button onclick="limparGaso()">Limpar</button>
     </div>
-    <input style="text-align: center;" type="text" name="resposta" id="coronaResposta"  class="resposta">
+    <input style="text-align: center;" type="text" name="resposta" id="GasoResposta"  class="resposta">
 </div>
 </div>
 </div>
@@ -619,6 +1468,25 @@ h1{
             readonly
         >
 
+<div class="memoria-container">
+    <div class="memoria-item mais" id="campoMmais">
+        <span>M+</span>
+        <input 
+            type="text"
+            id="mmais"
+            readonly
+        > 
+    </div> 
+    <div class="memoria-item menos" id="campoMmenos">
+        <span>M-</span>
+        <input 
+            type="text"
+            id="mmenos"
+            readonly
+        >
+    </div>  
+  </div>
+
         <!-- Botões -->
         <div class="botoesCalc">
             <!-- Botões Memória -->
@@ -643,9 +1511,11 @@ h1{
             <button type="button" class="operador" onclick="add('-')">−</button>
 
             <button type="button" onclick="add('0')">0</button>
-            <button type="button" class="limpar" onclick="limparCalc()">C</button>
-            <button type="button" class="igual" onclick="calcular()">=</button>
+            <button type="button" onclick="add('.')">.</button>
+
             <button type="button" class="operador" onclick="add('+')">+</button>
+            <button type="button" class="igual" onclick="calcular()">=</button>
+            <button type="button" class="limpar" onclick="limparCalc()">C</button>
 
         </div>
 
@@ -658,18 +1528,292 @@ h1{
 <!-- REGRA DE 3 -->
 <div id="telaRegra3" class="ocult">
 
-<div class="voltar" onclick="voltar()">⬅ Voltar</div>
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Regra de 3</h1>
+    <div id="conteinne">
+        <div class="conteinne">
+            <!-- PRIMEIRA LINHA -->
+            <div class="regra3-linha">
 
-<h3>Regra de 3</h3>
+                <div>
+                    <label>Valor A</label>
+                    <input type="text" id="a" class="regra3-campo">
+                </div>
 
-<input type="number" id="a" placeholder="Valor A"><br><br>
-<input type="number" id="b" placeholder="Valor B"><br><br>
-<input type="number" id="c" placeholder="Valor C"><br><br>
+                <div class="regra3-seta">➜</div>
 
-<button onclick="regra3()">Calcular</button>
+                <div>
+                    <label>Valor B</label>
+                    <input type="text" id="b" class="regra3-campo">
+                </div>
 
-<h3 id="resultado"></h3>
+            </div>
 
+            <!-- SEGUNDA LINHA -->
+            <div class="regra3-linha">
+
+                <div>
+                    <label>Valor C</label>
+                    <input type="text" id="c" class="regra3-campo">
+                </div>
+
+                <div class="regra3-seta">➜</div>
+
+                <div>
+                    <label>Resultado X</label>
+                    <input type="text" id="x"
+                        class="regra3-campo regra3-resultado"
+                        readonly>
+                </div>
+
+            </div>
+
+            <div class="botoes">
+                <button type="button" onclick="calcregra3()">
+                    Processar
+                </button>
+
+                <button type="button" onclick="regra3limpar()">
+                    Limpar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Sorteador -->
+<div id="telaSorteador" class="ocult">
+
+    <div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+    <h1>Sorteador</h1>
+        <div id="conteinne">
+            <div class="conteinne">
+
+            <!-- SORTEADOR DE NÚMEROS -->
+            <div class="sorteador-card">
+
+                <h2><i class="fas fa-dice"></i> Sorteador de Números</h2>
+
+                <div class="sorteador-campos">
+                    <div>
+                        <label for="numeroInicio">Número inicial</label>
+                        <input type="number" id="numeroInicio" placeholder="Ex: 1">
+                    </div>
+
+                    <div>
+                        <label for="numeroFim">Número final</label>
+                        <input type="number" id="numeroFim" placeholder="Ex: 100">
+                    </div>
+                </div>
+
+                <div id="resultadoNumero" class="sorteador-resultado">
+                    ?
+                </div>
+
+                <div class="sorteador-botoes">
+                    <button onclick="sortearNumero()">
+                        <i class="fas fa-dice"></i> Sortear
+                    </button>
+
+                    <button class="btn-limpar" onclick="limparNumero()">
+                        <i class="fas fa-eraser"></i> Limpar
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- SORTEADOR DE NOMES -->
+            <div class="sorteador-card">
+
+                <h2><i class="fas fa-users"></i> Sorteador de Nomes</h2>
+
+                <label for="nomeSorteio">Digite um nome</label>
+
+                <div class="sorteador-adicionar">
+                    <input type="text" id="nomeSorteio"
+                        placeholder="Digite o nome..."
+                        onkeydown="if(event.key === 'Enter') adicionarNome()">
+
+                    <button onclick="adicionarNome()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="sorteador-lista-titulo">
+                    <strong>Lista de nomes</strong>
+                    <span id="totalNomes">0 nomes</span>
+                </div>
+
+                <ul id="listaNomes" class="lista-sorteio">
+                    <li class="lista-vazia">Nenhum nome adicionado</li>
+                </ul>
+
+                <div id="resultadoNome" class="sorteador-resultado">
+                    ?
+                </div>
+
+                <div class="sorteador-botoes">
+                    <button onclick="sortearNome()">
+                        <i class="fas fa-trophy"></i> Sortear Nome
+                    </button>
+
+                    <button class="btn-limpar" onclick="limparNomes()">
+                        <i class="fas fa-trash"></i> Limpar Nomes
+                    </button>
+                </div>
+
+            </div>
+
+         </div>
+</div>
+</div>
+
+
+
+<!-- telaMGKGMin -->
+<div id="telaMGKGMin" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>MGKGMin</h1>
+<div id="conteinne">
+    <div class="conteinne">
+       <div class="medicamento-card">
+
+                                        
+                        <div class="seletor-medicacao">
+
+                            <button type="button"
+                                    class="btn-medicacao"
+                                    onclick="abrirListaMedicacoes()">
+
+                                <i class="fas fa-capsules"></i>
+                                <span id="medicacaoSelecionada">Selecionar Medicação</span>
+                                <i class="fas fa-chevron-down"></i>
+
+                            </button>
+
+                            <div id="listaMedicacoes" class="lista-medicacoes">
+
+                                <button type="button" onclick="selecionarMedicacao('Noradrenalina')">
+                                    Noradrenalina
+                                </button>
+
+                                <button type="button" onclick="selecionarMedicacao('Midazolam')">
+                                    Midazolam
+                                </button>
+
+                                <button type="button" onclick="selecionarMedicacao('Fentanila')">
+                                    Fentanila
+                                </button>
+
+                                <button type="button" onclick="selecionarMedicacao('Propofol')">
+                                    Propofol
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+    <div class="linha-concentracao">
+
+        <div class="campo-med">
+            <label>MG</label>
+            <input type="number" id="mg" placeholder="Ex: 500">
+        </div>
+
+        <div class="campo-med">
+            <label>ML</label>
+            <input type="number" id="ml" placeholder="Ex: 10">
+        </div>
+
+        <div class="campo-med">
+            <label>Volume da Ampola</label>
+            <input type="number" id="volumeAmpola" placeholder="Ex: 5">
+        </div>
+
+    </div>
+
+    <div class="linha-campo">
+        <label>Quantidade de Ampolas</label>
+        <input type="number" id="quantidadeAmpolas"
+               placeholder="Quantidade">
+    </div>
+    
+    <div class="linha-campo">
+        <label>Solução total em (ml)</label>
+        <input type="number" id="solucao" placeholder="Solução">
+    </div>
+
+    <div class="linha-campo">
+        <label>Velocidade BIC</label>
+        <input type="number" id="BIC" placeholder="Valor Ml/h BIC">
+    </div>
+
+    <div class="linha-campo">
+        <label>Peso (kg)</label>
+        <input type="number" id="pesopct"
+               placeholder="Informe o peso do paciente">
+    </div>
+
+    </div>
+    <div class="botoes">
+        <button class="btn_processar conteinne" onclick="processarMckgMin()">Processar</button>
+        <button class="btn_limpar conteinne" onclick="limparMckgMin()">Limpar</button>
+    </div>
+     <input style="text-align: center;" type="text" name="resposta" id="MckgMinResposta" class="resposta">
+</div>
+</div>
+</div>
+
+
+<!-- telaDivideConta -->
+ <div id="telaDivideConta" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Divide Conta</h1>
+<div id="conteinne">
+    <div class="conteinne">
+    <div id="menudivideconta">
+            <button onclick="btnamigos()" class="btn menu">AMIGOS</button>
+            <button onclick="btnprodutos()" class="btn menu">PRODUTOS</button>
+            <button onclick="btnconsumos()" class="btn menu">CONSUMOS</button>
+            <button onclick="btndivisao()" class="btn menu">DIVISÃO</button>
+    </div> 
+    <div id="amigos">
+        <h2>Amigos</h2>
+        <input type="text" id="nomeAmigo" placeholder="Nome">
+        <button onclick="addAmigo()" class="btn add">Adicionar</button>
+        <table id="tabelaAmigos"></table>
+    </div>
+    <div id="produtos">
+        <h2>Produtos</h2>
+        <input type="text" id="desc" placeholder="Descrição">
+        <input type="number" id="qtd" placeholder="Qtd">
+        <input type="number" id="valor" placeholder="Valor">
+        <button onclick="addProduto()" class="btn add">Adicionar Produto</button>
+        <label><input type="checkbox" id="taxa" onchange="calcularDivisao()"> Adicionar 10% Garçom</label>
+        <table id="tabelaProdutos"></table>
+        <h3 id="totalConta"></h3>
+    </div>
+    <div id="consumos">
+        <h2>Quem consumiu o quê</h2>
+        <table id="tabelaConsumo"></table>
+    </div>
+    <div id="divisao">
+        <h2>Divisão Final</h2>
+        <table id="tabelaDivisao"></table>
+    </div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -679,8 +1823,15 @@ h1{
 
 
 
-<script>
 
+
+
+
+
+
+
+<script>
+    
 function abrirTela(id){
     document.querySelectorAll('.ocult').forEach(t => t.classList.remove('ativa'));
     document.getElementById(id).classList.add('ativa');
@@ -977,6 +2128,8 @@ function limparCorona(){
 
 /* Crockcroft Gault */
 
+
+
 function processarGault() {
 
     const sexo = document.querySelector('input[name="OPCAO"]:checked');
@@ -1055,8 +2208,9 @@ function limparGault() {
 
 
 
-
-/* Pressao arterial media */
+// =================================
+// Pressao arterial media
+// =================================
 
 function processarPAM() {
 
@@ -1121,7 +2275,14 @@ function limparPAM() {
 }
 
 
-/* CALCULADORA */
+
+// =================================
+// CALCULADORA
+// =================================
+
+
+
+
 function add(valor){
     document.getElementById('display').value += valor;
 }
@@ -1144,6 +2305,25 @@ const display = document.getElementById("display");
 
 // Adicionar valores
 function add(valor){
+    display.value += valor;
+}
+
+function add(valor) {
+
+    if (valor === '.') {
+
+        let partes = display.value.split(/[+\-*/]/);
+        let ultimoNumero = partes[partes.length - 1];
+
+        if (ultimoNumero.includes('.')) {
+            return;
+        }
+
+        if (ultimoNumero === '') {
+            valor = '0.';
+        }
+    }
+
     display.value += valor;
 }
 
@@ -1179,58 +2359,595 @@ let memoriaMaisValor = 0;
 let memoriaMenosValor = 0;
 
 // M+
-function memoriaMais(){
+function memoriaMais() {
 
     let valor = parseFloat(display.value);
 
-    if(!isNaN(valor)){
-        memoriaMaisValor += valor;
-    }
+    if (!isNaN(valor)) {
 
+        memoriaMaisValor += valor;
+
+        document.getElementById("mmais").value =
+            memoriaMaisValor.toFixed(2);
+
+        document.getElementById("campoMmais").style.display = "block";
+    }
 }
 
 // M-
-function memoriaMenos(){
+function memoriaMenos() {
 
     let valor = parseFloat(display.value);
 
-    if(!isNaN(valor)){
-        memoriaMenosValor += valor;
-    }
+    if (!isNaN(valor)) {
 
+        memoriaMenosValor += valor;
+
+        document.getElementById("mmenos").value =
+            memoriaMenosValor.toFixed(2);
+
+        document.getElementById("campoMmenos").style.display = "block";
+    }
 }
 
 // MR
-function memoriaResultado(){
+function memoriaResultado() {
 
     let resultado = memoriaMaisValor - memoriaMenosValor;
 
-    display.value = resultado;
-
+    display.value = resultado.toFixed(2);
 }
 
 // MC
-function memoriaClear(){
+function memoriaClear() {
 
     memoriaMaisValor = 0;
     memoriaMenosValor = 0;
 
     display.value = "";
 
+    document.getElementById("mmais").value = "";
+    document.getElementById("mmenos").value = "";
+
+    document.getElementById("campoMmais").style.display = "none";
+    document.getElementById("campoMmenos").style.display = "none";
 }
 
 
 
-/* REGRA DE 3 */
-function regra3(){
+
+// =================================
+// REGRA DE 3
+// =================================
+
+function calcregra3(){
     let a = parseFloat(document.getElementById('a').value);
     let b = parseFloat(document.getElementById('b').value);
     let c = parseFloat(document.getElementById('c').value);
 
     let resultado = (b * c) / a;
 
-    document.getElementById('resultado').innerText = "Resultado: " + resultado;
+    document.getElementById('x').value = resultado;
 }
+
+
+function regra3limpar(){
+    document.getElementById('a').value=""
+    document.getElementById('b').value=""
+    document.getElementById('c').value=""
+    document.getElementById('x').value=""
+
+}
+
+
+
+
+// =================================
+// SORTEADOR DE NÚMEROS
+// =================================
+
+
+function sortearNumero() {
+
+    let inicio = Number(document.getElementById("numeroInicio").value);
+    let fim = Number(document.getElementById("numeroFim").value);
+
+    if (
+        document.getElementById("numeroInicio").value === "" ||
+        document.getElementById("numeroFim").value === ""
+    ) {
+        alert("Informe o número inicial e final!");
+        return;
+    }
+
+    if (
+        !Number.isSafeInteger(inicio) ||
+        !Number.isSafeInteger(fim) ||
+        inicio > fim
+    ) {
+        alert("Informe um intervalo válido!");
+        return;
+    }
+
+    const resultadoElemento = document.getElementById("resultadoNumero");
+
+    // Número que será sorteado
+    let resultado = Math.floor(
+        Math.random() * (fim - inicio + 1)
+    ) + inicio;
+
+    // Inicia a animação
+    resultadoElemento.classList.add("animando");
+
+    let velocidade = 60;
+    let duracao = 2000;
+    let tempoInicial = Date.now();
+
+    let animacao = setInterval(function () {
+
+        // Mostra números aleatórios durante a animação
+        let numeroTemporario = Math.floor(
+            Math.random() * (fim - inicio + 1)
+        ) + inicio;
+
+        resultadoElemento.textContent = numeroTemporario;
+
+        // Finaliza após 2 segundos
+        if (Date.now() - tempoInicial >= duracao) {
+
+            clearInterval(animacao);
+
+            resultadoElemento.textContent = resultado;
+
+            resultadoElemento.classList.remove("animando");
+            resultadoElemento.classList.add("finalizado");
+        }
+
+    }, velocidade);
+}
+
+
+
+function limparNumero() {
+
+    document.getElementById("numeroInicio").value = "";
+    document.getElementById("numeroFim").value = "";
+    document.getElementById("resultadoNumero").textContent = "?";
+
+}
+
+
+// =================================
+// SORTEADOR DE NOMES
+// =================================
+
+let nomesSorteio = [];
+let animacaoNomes = null;
+
+
+// ADICIONAR NOME
+function adicionarNome() {
+
+    let campo = document.getElementById("nomeSorteio");
+    let nome = campo.value.trim();
+
+    if (nome === "") {
+        alert("Digite um nome!");
+        campo.focus();
+        return;
+    }
+
+    // Adiciona o nome ao array
+    nomesSorteio.push(nome);
+
+    // Limpa o campo
+    campo.value = "";
+    campo.focus();
+
+    // Atualiza a lista na tela
+    atualizarListaNomes();
+
+}
+
+
+// ATUALIZAR LISTA DE NOMES
+function atualizarListaNomes() {
+
+    let lista = document.getElementById("listaNomes");
+    let total = document.getElementById("totalNomes");
+
+    lista.innerHTML = "";
+
+    if (nomesSorteio.length === 0) {
+
+        lista.innerHTML =
+            '<li class="lista-vazia">Nenhum nome adicionado</li>';
+
+    } else {
+
+        nomesSorteio.forEach(function(nome, indice) {
+
+            let item = document.createElement("li");
+
+            item.textContent = (indice + 1) + " - " + nome;
+
+            lista.appendChild(item);
+
+        });
+
+    }
+
+    total.textContent =
+        nomesSorteio.length +
+        (nomesSorteio.length === 1 ? " nome" : " nomes");
+
+}
+
+
+// SORTEAR NOME COM ANIMAÇÃO
+function sortearNome() {
+
+    if (nomesSorteio.length === 0) {
+        alert("Adicione pelo menos um nome!");
+        return;
+    }
+
+    // Impede vários sorteios simultâneos
+    if (animacaoNomes !== null) {
+        return;
+    }
+
+    let resultadoElemento =
+        document.getElementById("resultadoNome");
+
+    // Escolhe o vencedor
+    let indiceVencedor = Math.floor(
+        Math.random() * nomesSorteio.length
+    );
+
+    let vencedor = nomesSorteio[indiceVencedor];
+
+    resultadoElemento.classList.remove("finalizado");
+    resultadoElemento.classList.add("animando");
+
+    let duracao = 3000;
+    let inicio = Date.now();
+
+    animacaoNomes = setInterval(function() {
+
+        // Exibe nomes aleatórios
+        let indiceAleatorio = Math.floor(
+            Math.random() * nomesSorteio.length
+        );
+
+        resultadoElemento.textContent =
+            "🎲 " + nomesSorteio[indiceAleatorio];
+
+        // Finaliza a animação
+        if (Date.now() - inicio >= duracao) {
+
+            clearInterval(animacaoNomes);
+            animacaoNomes = null;
+
+            resultadoElemento.textContent =
+                "🏆 " + vencedor;
+
+            resultadoElemento.classList.remove("animando");
+            resultadoElemento.classList.add("finalizado");
+
+        }
+
+    }, 80);
+
+}
+
+
+// LIMPAR NOMES
+function limparNomes() {
+
+    // Para a animação
+    if (animacaoNomes !== null) {
+        clearInterval(animacaoNomes);
+        animacaoNomes = null;
+    }
+
+    // Limpa o array
+    nomesSorteio = [];
+
+    // Limpa o campo
+    document.getElementById("nomeSorteio").value = "";
+
+    // Reseta o resultado
+    let resultado =
+        document.getElementById("resultadoNome");
+
+    resultado.textContent = "?";
+
+    resultado.classList.remove("animando", "finalizado");
+
+    // Atualiza a lista
+    atualizarListaNomes();
+
+}
+
+
+
+
+
+
+function abrirListaMedicacoes() {
+
+    let lista = document.getElementById("listaMedicacoes");
+
+    lista.classList.toggle("ativa");
+
+}
+
+
+function selecionarMedicacao(nome) {
+
+    document.getElementById("medicacaoSelecionada").textContent = nome;
+
+    document.getElementById("listaMedicacoes").classList.remove("ativa");
+
+    // Preenche os campos conforme a medicação
+    if (nome === "Noradrenalina") {
+
+        document.getElementById("mg").value = 1;
+        document.getElementById("ml").value = 1;
+        document.getElementById("volumeAmpola").value = 4;
+        document.getElementById("quantidadeAmpolas").value = 4;
+        document.getElementById("solucao").value = 250;
+
+    }
+
+}
+
+
+function processarMckgMin() {
+
+        let valoramp = ((document.getElementById("mg").value * document.getElementById("ml").value) * document.getElementById("volumeAmpola").value) * document.getElementById("quantidadeAmpolas").value;
+        let valork = (((valoramp / document.getElementById("solucao").value) * 1000) / 60).toFixed(2);
+        document.getElementById("MckgMinResposta").value = ((document.getElementById("BIC").value * valork) / document.getElementById("pesopct").value).toFixed(1) + " Mcg/kg/Min";
+        
+
+
+    // Preenche os campos conforme a medicação
+    if (nome === "Noradrenalina") {
+
+        document.getElementById("mg").value = 3;
+        document.getElementById("ml").value = 1;
+        document.getElementById("volumeAmpola").value = 4;
+        document.getElementById("quantidadeAmpolas").value = 4;
+        document.getElementById("solucao").value = 250;
+
+    }
+
+}
+
+function limparMckgMin() {
+    document.getElementById("mg").value = "";
+    document.getElementById("ml").value = "";
+    document.getElementById("volumeAmpola").value = "";
+    document.getElementById("quantidadeAmpolas").value = '';
+    document.getElementById("solucao").value = "";
+    document.getElementById("BIC").value = "";
+    document.getElementById("pesopct").value = "";
+    document.getElementById("MckgMinResposta").value = "";
+}
+
+
+
+// bar
+
+
+let amigos = [];
+let produtos = [];
+let consumo = {};
+
+
+
+
+function addAmigo() {
+    const nome = document.getElementById('nomeAmigo').value;
+    if(!nome) return;
+    amigos.push(nome);
+    consumo[nome] = {};
+    document.getElementById('nomeAmigo').value = '';
+    renderAmigos();
+    renderConsumo();
+}
+
+function removeAmigo(index){
+    const nome = amigos[index];
+    delete consumo[nome];
+    amigos.splice(index,1);
+    renderAmigos();
+    renderConsumo();
+    calcularDivisao();
+}
+
+function renderAmigos(){
+    let html = '<tr><th>Nome</th><th>Ação</th></tr>';
+    amigos.forEach((a,i)=>{
+        html += `<tr><td>${a}</td><td><button class="delete" onclick="removeAmigo(${i})">Excluir</button></td></tr>`;
+    });
+    document.getElementById('tabelaAmigos').innerHTML = html;
+}
+
+function addProduto(){
+    const desc = document.getElementById('desc').value;
+    const qtd = parseFloat(document.getElementById('qtd').value);
+    const valor = parseFloat(document.getElementById('valor').value);
+    if(!desc || !qtd || !valor) return;
+
+    const total = qtd * valor;
+    produtos.push({desc,qtd,valor,total});
+
+    document.getElementById('desc').value='';
+    document.getElementById('qtd').value='';
+    document.getElementById('valor').value='';
+
+    renderProdutos();
+    renderConsumo();
+    calcularDivisao();
+}
+
+function removeProduto(index){
+    produtos.splice(index,1);
+    renderProdutos();
+    renderConsumo();
+    calcularDivisao();
+}
+
+function renderProdutos(){
+    let html = '<tr><th>Descrição</th><th>Qtd</th><th>Valor</th><th>Total</th><th>Ação</th></tr>';
+    produtos.forEach((p,i)=>{
+        html += `<tr>
+            <td>${p.desc}</td>
+            <td>${p.qtd}</td>
+            <td>${p.valor}</td>
+            <td>${p.total.toFixed(2)}</td>
+            <td><button class="delete" onclick="removeProduto(${i})">Excluir</button></td>
+        </tr>`;
+    });
+    document.getElementById('tabelaProdutos').innerHTML = html;
+}
+
+function renderConsumo(){
+    let html = '<tr><th>Produto</th>';
+    amigos.forEach(a=> html += `<th>${a}</th>`);
+    html += '</tr>';
+
+    produtos.forEach((p,i)=>{
+        html += `<tr><td>${p.desc}</td>`;
+        amigos.forEach(a=>{
+            let checked = consumo[a][i] ? 'checked' : '';
+            html += `<td><input type="checkbox" ${checked} onchange="toggleConsumo('${a}',${i})"></td>`;
+        });
+        html += '</tr>';
+    });
+
+    document.getElementById('tabelaConsumo').innerHTML = html;
+}
+
+function toggleConsumo(amigo, produtoIndex){
+    consumo[amigo][produtoIndex] = !consumo[amigo][produtoIndex];
+    calcularDivisao();
+}
+
+function calcularDivisao(){
+    let totalConta = produtos.reduce((sum,p)=>sum+p.total,0);
+    let taxa = document.getElementById('taxa').checked ? totalConta*0.1 : 0;
+    let totalFinal = totalConta + taxa;
+
+    let valores = {};
+    amigos.forEach(a=> valores[a]=0);
+
+    produtos.forEach((p,i)=>{
+        let consumidores = amigos.filter(a=> consumo[a][i]);
+        if(consumidores.length > 0){
+            let valorDividido = p.total / consumidores.length;
+            consumidores.forEach(a=> valores[a]+=valorDividido);
+        }
+    });
+
+    // rateio da taxa proporcional
+    let somaConsumida = Object.values(valores).reduce((a,b)=>a+b,0);
+    amigos.forEach(a=>{
+        let proporcao = somaConsumida ? valores[a]/somaConsumida : 0;
+        valores[a] += taxa * proporcao;
+    });
+
+    document.getElementById('totalConta').innerText = `Total: R$ ${totalFinal.toFixed(2)}`;
+
+    let html = '<tr><th>Amigo</th><th>Total a pagar</th></tr>';
+    amigos.forEach(a=>{
+        html += `<tr><td>${a}</td><td>R$ ${valores[a].toFixed(2)}</td></tr>`;
+    });
+
+    document.getElementById('tabelaDivisao').innerHTML = html;
+}
+
+function btnamigos(){
+    var div = document.getElementById("amigos");
+
+        div.style.display = "block";
+
+    var div = document.getElementById("produtos");
+
+        div.style.display = "none";
+   
+    var div = document.getElementById("consumos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("divisao");
+
+        div.style.display = "none";
+
+
+}
+
+
+
+function btnprodutos(){
+    var div = document.getElementById("amigos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("produtos");
+
+        div.style.display = "block";
+   
+    var div = document.getElementById("consumos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("divisao");
+
+        div.style.display = "none";
+
+}
+
+function btnconsumos(){
+    var div = document.getElementById("amigos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("produtos");
+
+        div.style.display = "none";
+   
+    var div = document.getElementById("consumos");
+
+        div.style.display = "block";
+
+    var div = document.getElementById("divisao");
+
+        div.style.display = "none";
+}
+
+function btndivisao(){
+    var div = document.getElementById("amigos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("produtos");
+
+        div.style.display = "none";
+   
+    var div = document.getElementById("consumos");
+
+        div.style.display = "none";
+
+    var div = document.getElementById("divisao");
+
+        div.style.display = "block";
+}
+
+
+
 </script>
 
 </body>
