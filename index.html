@@ -1022,6 +1022,466 @@ h1{
 
 
 
+/*   quanto ganho por hora */
+
+
+
+.subtitle {
+    text-align: center;
+    color: #788196;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce1eb;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #4263eb;
+}
+
+.salary {
+    max-width: 350px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.month input {
+    max-width: 170px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 12px;
+    color: #81899a;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+.day {
+    border: 1px solid #e4e8f0;
+    border-radius: 8px;
+    padding: 12px 2px;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    transition: .2s;
+    font-weight: bold;
+}
+
+.day:hover {
+    background: #eef2ff;
+}
+
+.day.selected {
+    background: #4263eb;
+    color: white;
+    border-color: #4263eb;
+}
+
+.day.empty {
+    border: none;
+    cursor: default;
+    background: transparent;
+}
+
+.day.today {
+    outline: 2px solid #a5b4fc;
+}
+
+.hint {
+    color: #7c8597;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hour-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hour-row label {
+    margin: 0;
+    min-width: 100px;
+}
+
+.hour-row input {
+    width: 100px;
+    text-align: center;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.result {
+    padding: 20px;
+    border-radius: 12px;
+    background: #f4f6fc;
+}
+
+.result.highlight {
+    background: #e9efff;
+}
+
+.result span {
+    color: #747e93;
+    font-size: 13px;
+}
+
+.result strong {
+    display: block;
+    font-size: 25px;
+    margin-top: 10px;
+    color: #263b82;
+}
+
+.result.highlight strong {
+    color: #3158d9;
+    font-size: 30px;
+}
+
+.reset {
+    background: #e9edf5;
+    color: #34405a;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+@media(max-width: 700px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .calendar {
+        gap: 4px;
+    }
+
+    .day {
+        padding: 12px 0;
+        font-size: 13px;
+    }
+}
+
+
+.acrescimo-box {
+    background: #f8f9fd;
+    border: 1px solid #e5e9f2;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.acrescimo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.acrescimo-header strong {
+    color: #3158d9;
+    font-size: 22px;
+}
+
+#acrescimo {
+    width: 100%;
+    accent-color: #4263eb;
+    cursor: pointer;
+    padding: 0;
+}
+
+.acrescimo-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #81899a;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.valor-com-acrescimo {
+    background: #e9efff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.valor-com-acrescimo span {
+    color: #52638e;
+    font-size: 13px;
+}
+
+.valor-com-acrescimo strong {
+    display: block;
+    color: #3158d9;
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+
+/* RESPONSIVIDADE PARA CELULAR */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    padding: 12px;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Calendário */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+}
+
+.day, .weekday {
+    min-width: 0;
+    text-align: center;
+    padding: 10px 2px;
+    font-size: clamp(11px, 3.5vw, 15px);
+}
+
+.day {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Campos */
+input, select, button {
+    max-width: 100%;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    min-height: 42px;
+}
+
+/* Resultados */
+.results, .summary, .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+button {
+    min-height: 44px;
+    cursor: pointer;
+}
+
+
+/* termos tecnicos */
+#conteinerTermos {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* CAMPO DE BUSCA */
+.busca-termos {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #1976d2;
+    border-radius: 12px;
+    padding: 0 12px;
+    margin-bottom: 12px;
+    height: 52px;
+}
+
+.busca-termos i {
+    color: #1976d2;
+    font-size: 18px;
+}
+
+.busca-termos input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+    background: transparent;
+}
+
+/* BOTÃO LIMPAR BUSCA */
+.busca-termos .bttermotec {
+    width: 35px !important;
+    min-width: 35px !important;
+    max-width: 35px !important;
+    height: 35px !important;
+    min-height: 35px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    flex: 0 0 35px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    color: #1976d2 !important;
+
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+/* CATEGORIA */
+#categoriaTermos {
+    width: 100%;
+    height: 48px;
+    border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 15px;
+    background: white;
+    margin-bottom: 12px;
+}
+
+/* CONTADOR */
+.contador-termos {
+    font-size: 13px;
+    color: #555;
+    margin: 10px 3px;
+    font-weight: bold;
+}
+
+/* LISTA */
+#listaTermos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* CARD */
+.card-termo {
+    background: #fff;
+    border-left: 5px solid #1976d2;
+    border-radius: 10px;
+    padding: 13px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+}
+
+.card-termo h3 {
+    margin: 0 0 7px;
+    color: #1565c0;
+    font-size: 17px;
+}
+
+.card-termo p {
+    margin: 0;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.categoria-card {
+    display: inline-block;
+    margin-top: 9px;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: #e3f2fd;
+    color: #1565c0;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* SEM RESULTADOS */
+#semTermos {
+    text-align: center;
+    padding: 30px 10px;
+    color: #777;
+}
+
+#semTermos i {
+    font-size: 35px;
+    color: #90a4ae;
+}
+
+#semTermos p {
+    font-size: 15px;
+}
+
+
+
+
 
 
 
@@ -1151,13 +1611,14 @@ h1{
     <div class="card" onclick="abrirTela('telaSorteador')"><i class="fa-solid fa-rotate-right"></i><span>Sorteador</span></div>
     <div class="card" onclick="abrirTela('telaDivideConta')"><i class="fas fa-receipt"></i><span>Dividir Conta</span></div>
     <div class="card" onclick="abrirTela('telaMGKGMin')"><i class="fa-solid fa-scale-balanced"></i><span>Mcg / Kg / Min</span></div>
-    <div class="card"><i class="fas fa-ruler"></i><span>Medidas</span></div>
-    <div class="card"><i class="fas fa-clock"></i><span>Tempo</span></div>
+    <div class="card" onclick="abrirTela('telaGanhoReal')"><i class="fa-solid fa-brazilian-real-sign"></i></i><span>Quanto Ganho por Hora</span></div>
+    <div class="card" onclick="abrirTela('telaTermosTecnicos')"><i class="fa-solid fa-list-check"></i><span>Termos Tecnicos</span></div>
     <div class="card"><i class="fas fa-coins"></i><span>Moedas</span></div>
 
 </div>
 
 </div>
+
 
 <!-- Mews -->
 <div id="telaMews" class="ocult">
@@ -1817,12 +2278,242 @@ h1{
 </div>
 
 
+<!-- Quanto ganho por Hora -->
 
 
+<div id="telaGanhoReal" class="ocult">
 
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Quanto ganho por Hora</h1>
+<div id="conteinne">
+    <div class="conteinne">
 
+    <p class="subtitle">
+        Descubra quanto você ganha por cada hora trabalhada.
+    </p>
 
+    <!-- SALÁRIO -->
+    <div class="card">
+        <label for="salary">Quanto você ganha por mês?</label>
+        <input
+            class="salary"
+            type="number"
+            id="salary"
+            placeholder="Ex: 3000"
+            min="0"
+            step="0.01"
+            oninput="calculate()"
+        >
+    </div>
 
+    
+
+        <!-- CALENDÁRIO -->
+        <div class="card">
+            <h3 style="margin-bottom:20px">
+                📅 Marque os dias que trabalha
+            </h3>
+
+            <div class="month">
+                <label for="month" style="margin:0">
+                    Mês de trabalho
+                </label>
+                <input
+                    type="month"
+                    id="month"
+                    onchange="renderCalendar()"
+                >
+            </div>
+
+            <div class="calendar" id="calendar"></div>
+
+            <p class="hint">
+                Clique nos dias para marcar ou desmarcar seus dias de trabalho.
+                Azul significa dia trabalhado.
+            </p>
+        </div>
+
+        <!-- HORAS POR DIA -->
+        <div class="card">
+            <h3 style="margin-bottom:20px">
+                ⏰ Horas trabalhadas por dia
+            </h3>
+
+            <div class="hours-list" id="hoursList">
+
+                <div class="hour-row">
+                    <label>Segunda-feira</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="1" value="8" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Terça-feira</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="2" value="8" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Quarta-feira</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="3" value="8" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Quinta-feira</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="4" value="8" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Sexta-feira</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="5" value="8" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Sábado</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="6" value="0" oninput="calculate()">
+                </div>
+
+                <div class="hour-row">
+                    <label>Domingo</label>
+                    <input type="number" min="0" step="0.5"
+                    data-day="0" value="0" oninput="calculate()">
+                </div>
+
+            </div>
+        </div>
+
+    
+
+    
+<!-- ACRÉSCIMO -->
+<div class="card">
+    <div class="acrescimo-box">
+
+        <div class="acrescimo-header">
+            <label for="acrescimo">
+                Percentual de acréscimo na hora
+            </label>
+
+            <strong id="percentual">0%</strong>
+        </div>
+
+        <input
+            type="range"
+            id="acrescimo"
+            min="0"
+            max="100"
+            value="0"
+            step="1"
+            oninput="calculate()"
+        >
+
+        <div class="acrescimo-labels">
+            <span>0%</span>
+            <span>25%</span>
+            <span>50%</span>
+            <span>75%</span>
+            <span>100%</span>
+        </div>
+
+        <div class="valor-com-acrescimo">
+            <span>Valor da hora com acréscimo</span>
+            <strong id="hourlyExtra">R$ 0,00</strong>
+        </div>
+
+    </div>
+</div>
+
+    <!-- RESULTADOS -->
+    <div class="card">
+        <h3 style="margin-bottom:20px">
+            📊 Resultado do cálculo
+        </h3>
+
+        <div class="results">
+
+            <div class="result">
+                <span>Total de dias trabalhados</span>
+                <strong id="totalDays">0 dias</strong>
+            </div>
+
+            <div class="result">
+                <span>Total de horas trabalhadas no mês</span>
+                <strong id="totalHours">0 horas</strong>
+            </div>
+
+            <div class="result">
+                <span>Salário mensal informado</span>
+                <strong id="monthlySalary">R$ 0,00</strong>
+            </div>
+
+            <div class="result highlight">
+                <span>💰 Quanto você ganha por hora</span>
+                <strong id="hourlyValue">R$ 0,00</strong>
+            </div>
+
+        </div>
+
+        <button class="reset" onclick="resetAll()">
+            Limpar calculadora
+        </button>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+<!-- Termos Tecnicos -->
+<div id="telaTermosTecnicos" class="ocult">
+
+<div class="voltar" onclick="voltar()"><i class="fas fa-arrow-circle-left"></i> Voltar</div>
+<h1>Termos Técnicos</h1>
+<div id="conteinne">
+ 
+    <div id="conteinerTermos">
+
+        <div class="busca-termos">
+            <i class="fas fa-search"></i>
+            <input
+                type="text"
+                id="pesquisaTermos"
+                placeholder="Pesquisar termo ou significado..."
+                oninput="filtrarTermos()"
+            >
+            <button class="bttermotec" onclick="limparBuscaTermos()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <select id="categoriaTermos" onchange="filtrarTermos()">
+            <option value="">Todas as categorias</option>
+            <option value="Sinais Vitais">Sinais Vitais</option>
+            <option value="Sintomas">Sintomas</option>
+            <option value="Procedimentos">Procedimentos</option>
+            <option value="Anatomia">Anatomia</option>
+            <option value="Eliminações">Eliminações</option>
+            <option value="Neurologia">Neurologia</option>
+            <option value="Respiratório">Respiratório</option>
+            <option value="Cardiologia">Cardiologia</option>
+            <option value="Enfermagem">Enfermagem</option>
+        </select>
+
+        <div class="contador-termos">
+            <span id="totalTermos">0 termos encontrados</span>
+        </div>
+
+        <div id="listaTermos"></div>
+
+        <div id="semTermos" style="display:none;">
+            <i class="fas fa-search"></i>
+            <p>Nenhum termo encontrado!</p>
+        </div>
+</div>
+</div>
 
 
 
@@ -2947,6 +3638,660 @@ function btndivisao(){
 }
 
 
+
+
+
+// =================================
+// Quanto ganho por hora
+// =================================
+
+
+
+
+const calendar = document.getElementById("calendar");
+const monthInput = document.getElementById("month");
+
+let selectedDays = new Set();
+
+const today = new Date();
+
+// Formatação de dinheiro
+const money = (value) => {
+    return Number(value || 0).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+};
+
+// Define o mês atual
+monthInput.value =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0");
+
+// Renderiza o calendário
+function renderCalendar() {
+
+    calendar.innerHTML = "";
+
+    const [year, month] = monthInput.value.split("-").map(Number);
+
+    if (!year || !month) return;
+
+    const firstDay = new Date(year, month - 1, 1).getDay();
+    const totalDays = new Date(year, month, 0).getDate();
+
+    const names = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+    names.forEach(name => {
+        const el = document.createElement("div");
+        el.className = "weekday";
+        el.textContent = name;
+        calendar.appendChild(el);
+    });
+
+    // Espaços antes do primeiro dia
+    for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        empty.className = "day empty";
+        calendar.appendChild(empty);
+    }
+
+    // Criação dos dias
+    for (let day = 1; day <= totalDays; day++) {
+
+        const el = document.createElement("div");
+
+        el.className = "day";
+        el.textContent = day;
+
+        if (selectedDays.has(day)) {
+            el.classList.add("selected");
+        }
+
+        if (
+            year === today.getFullYear() &&
+            month === today.getMonth() + 1 &&
+            day === today.getDate()
+        ) {
+            el.classList.add("today");
+        }
+
+        el.onclick = () => {
+
+            if (selectedDays.has(day)) {
+                selectedDays.delete(day);
+            } else {
+                selectedDays.add(day);
+            }
+
+            renderCalendar();
+        };
+
+        calendar.appendChild(el);
+    }
+
+    calculate();
+}
+
+// Realiza os cálculos
+function calculate() {
+
+    const salary = Math.max(
+        0,
+        Number(document.getElementById("salary").value) || 0
+    );
+
+    const hoursInputs = document.querySelectorAll("[data-day]");
+
+    let hoursPerDay = {};
+
+    hoursInputs.forEach(input => {
+        hoursPerDay[input.dataset.day] = Math.max(
+            0,
+            Number(input.value) || 0
+        );
+    });
+
+    const [year, month] = monthInput.value.split("-").map(Number);
+
+    let totalHours = 0;
+
+    selectedDays.forEach(day => {
+
+        const date = new Date(year, month - 1, day);
+        const weekday = date.getDay();
+
+        totalHours += hoursPerDay[weekday] || 0;
+
+    });
+
+    // Valor da hora normal
+    const hourlyValue = totalHours > 0
+        ? salary / totalHours
+        : 0;
+
+    // Acréscimo percentual
+    const percentual =
+        Number(document.getElementById("acrescimo").value) || 0;
+
+    // Valor da hora com acréscimo
+    const hourlyExtra = hourlyValue * (1 + percentual / 100);
+
+    // Atualiza a tela
+    document.getElementById("percentual").textContent =
+        percentual + "%";
+
+    document.getElementById("hourlyExtra").textContent =
+        money(hourlyExtra);
+
+    document.getElementById("totalDays").textContent =
+        selectedDays.size + " dias";
+
+    document.getElementById("totalHours").textContent =
+        totalHours.toLocaleString("pt-BR") + " horas";
+
+    document.getElementById("monthlySalary").textContent =
+        money(salary);
+
+    document.getElementById("hourlyValue").textContent =
+        money(hourlyValue);
+}
+
+// Limpa os dados
+function resetAll() {
+
+    selectedDays.clear();
+
+    document.getElementById("salary").value = "";
+
+    document.querySelectorAll("[data-day]").forEach(input => {
+        input.value =
+            input.dataset.day >= 1 &&
+            input.dataset.day <= 5 ? 8 : 0;
+    });
+
+    renderCalendar();
+}
+
+// Atualiza os cálculos quando os valores mudarem
+document.getElementById("salary").addEventListener("input", calculate);
+document.getElementById("acrescimo").addEventListener("input", calculate);
+
+document.querySelectorAll("[data-day]").forEach(input => {
+    input.addEventListener("input", calculate);
+});
+
+monthInput.addEventListener("change", () => {
+    selectedDays.clear();
+    renderCalendar();
+});
+
+// Inicialização
+renderCalendar();
+
+
+
+
+
+// termo tecnico script
+
+
+const termosEnfermagem = [
+    
+    {termo:"Afebril", significado:"Paciente sem febre.", categoria:"Sinais Vitais"},
+    {termo:"Febril", significado:"Paciente apresentando febre.", categoria:"Sinais Vitais"},
+    {termo:"Hipertermia", significado:"Elevação anormal da temperatura corporal.", categoria:"Sinais Vitais"},
+    {termo:"Hipotermia", significado:"Temperatura corporal abaixo do normal.", categoria:"Sinais Vitais"},
+    {termo:"Normotenso", significado:"Pressão arterial dentro dos parâmetros esperados.", categoria:"Sinais Vitais"},
+    {termo:"Hipertenso", significado:"Paciente com pressão arterial elevada.", categoria:"Sinais Vitais"},
+    {termo:"Hipotenso", significado:"Paciente com pressão arterial baixa.", categoria:"Sinais Vitais"},
+    {termo:"Taquicardia", significado:"Frequência cardíaca elevada.", categoria:"Sinais Vitais"},
+    {termo:"Bradicardia", significado:"Frequência cardíaca reduzida.", categoria:"Sinais Vitais"},
+    {termo:"Taquipneia", significado:"Aumento da frequência respiratória.", categoria:"Sinais Vitais"},
+    {termo:"Bradipneia", significado:"Diminuição da frequência respiratória.", categoria:"Sinais Vitais"},
+    {termo:"Eupneia", significado:"Respiração normal.", categoria:"Sinais Vitais"},
+    {termo:"Apneia", significado:"Ausência de movimentos respiratórios.", categoria:"Sinais Vitais"},
+    {termo:"Algia", significado:"Dor.", categoria:"Sintomas"},
+    {termo:"Cefaleia", significado:"Dor de cabeça.", categoria:"Sintomas"},
+    {termo:"Lombalgia", significado:"Dor na região lombar.", categoria:"Sintomas"},
+    {termo:"Mialgia", significado:"Dor muscular.", categoria:"Sintomas"},
+    {termo:"Artralgia", significado:"Dor nas articulações.", categoria:"Sintomas"},
+    {termo:"Náusea", significado:"Sensação de vontade de vomitar.", categoria:"Sintomas"},
+    {termo:"Êmese", significado:"Vômito.", categoria:"Sintomas"},
+    {termo:"Dispneia", significado:"Dificuldade para respirar.", categoria:"Sintomas"},
+    {termo:"Ortopneia", significado:"Dificuldade respiratória ao permanecer deitado.", categoria:"Sintomas"},
+    {termo:"Tontura", significado:"Sensação de desequilíbrio ou instabilidade.", categoria:"Sintomas"},
+    {termo:"Vertigem", significado:"Sensação de movimento ou rotação do ambiente.", categoria:"Sintomas"},
+    {termo:"Astenia", significado:"Sensação de fraqueza ou falta de energia.", categoria:"Sintomas"},
+    {termo:"Adinamia", significado:"Redução ou ausência de força para realizar atividades.", categoria:"Sintomas"},
+    {termo:"Parestesia", significado:"Sensação de formigamento ou dormência.", categoria:"Sintomas"},
+    {termo:"Prurido", significado:"Coceira.", categoria:"Sintomas"},
+    {termo:"Síncope", significado:"Perda transitória da consciência.", categoria:"Sintomas"},
+    {termo:"Edema", significado:"Acúmulo de líquido nos tecidos.", categoria:"Sintomas"},
+    {termo:"Cianose", significado:"Coloração azulada da pele ou mucosas.", categoria:"Sintomas"},
+    {termo:"Palidez", significado:"Diminuição da coloração habitual da pele.", categoria:"Sintomas"},
+    {termo:"Venóclise", significado:"Administração de solução por acesso venoso.", categoria:"Procedimentos"},
+    {termo:"Punção venosa", significado:"Introdução de dispositivo em uma veia para acesso vascular.", categoria:"Procedimentos"},
+    {termo:"Aspiração", significado:"Remoção de secreções por sistema de sucção.", categoria:"Procedimentos"},
+    {termo:"Sondagem vesical", significado:"Introdução de sonda na bexiga para drenagem urinária.", categoria:"Procedimentos"},
+    {termo:"Sondagem nasogástrica", significado:"Introdução de sonda pelo nariz até o estômago.", categoria:"Procedimentos"},
+    {termo:"Curativo", significado:"Procedimento de limpeza e proteção de feridas.", categoria:"Procedimentos"},
+    {termo:"Nebulização", significado:"Administração de substâncias em forma de aerossol.", categoria:"Procedimentos"},
+    {termo:"Hemostasia", significado:"Processo de controle ou interrupção de sangramento.", categoria:"Procedimentos"},
+    {termo:"Cateterismo", significado:"Introdução de cateter em estrutura ou cavidade corporal.", categoria:"Procedimentos"},
+    {termo:"Oxigenoterapia", significado:"Administração de oxigênio para suporte respiratório.", categoria:"Procedimentos"},
+    {termo:"Abdome", significado:"Região do corpo entre o tórax e a pelve.", categoria:"Anatomia"},
+    {termo:"Tórax", significado:"Região do corpo onde estão localizados coração e pulmões.", categoria:"Anatomia"},
+    {termo:"Cefálico", significado:"Relacionado à cabeça.", categoria:"Anatomia"},
+    {termo:"Caudal", significado:"Relacionado à região inferior do corpo.", categoria:"Anatomia"},
+    {termo:"Proximal", significado:"Mais próximo da origem ou do tronco.", categoria:"Anatomia"},
+    {termo:"Distal", significado:"Mais distante da origem ou do tronco.", categoria:"Anatomia"},
+    {termo:"Anterior", significado:"Localizado na parte da frente do corpo.", categoria:"Anatomia"},
+    {termo:"Posterior", significado:"Localizado na parte de trás do corpo.", categoria:"Anatomia"},
+    {termo:"Decúbito dorsal", significado:"Paciente deitado de costas.", categoria:"Anatomia"},
+    {termo:"Decúbito ventral", significado:"Paciente deitado de barriga para baixo.", categoria:"Anatomia"},
+    {termo:"Decúbito lateral", significado:"Paciente deitado sobre um dos lados.", categoria:"Anatomia"},
+    {termo:"Diurese", significado:"Eliminação de urina.", categoria:"Eliminações"},
+    {termo:"Anúria", significado:"Ausência ou produção extremamente reduzida de urina.", categoria:"Eliminações"},
+    {termo:"Oligúria", significado:"Redução do volume urinário.", categoria:"Eliminações"},
+    {termo:"Poliúria", significado:"Aumento do volume urinário.", categoria:"Eliminações"},
+    {termo:"Disúria", significado:"Dor ou dificuldade ao urinar.", categoria:"Eliminações"},
+    {termo:"Hematúria", significado:"Presença de sangue na urina.", categoria:"Eliminações"},
+    {termo:"Polaciúria", significado:"Aumento da frequência das micções.", categoria:"Eliminações"},
+    {termo:"Constipação", significado:"Dificuldade ou redução da frequência de evacuações.", categoria:"Eliminações"},
+    {termo:"Diarreia", significado:"Evacuações frequentes com fezes amolecidas ou líquidas.", categoria:"Eliminações"},
+    {termo:"Melena", significado:"Fezes escuras, geralmente relacionadas a sangramento digestivo.", categoria:"Eliminações"},
+    {termo:"Enterorragia", significado:"Eliminação de sangue vivo pelo ânus.", categoria:"Eliminações"},
+    {termo:"Consciente", significado:"Paciente desperto e com percepção do ambiente.", categoria:"Neurologia"},
+    {termo:"Inconsciente", significado:"Paciente sem percepção consciente do ambiente.", categoria:"Neurologia"},
+    {termo:"Orientado", significado:"Reconhece adequadamente pessoa, tempo e espaço.", categoria:"Neurologia"},
+    {termo:"Desorientado", significado:"Apresenta alteração na orientação temporal, espacial ou pessoal.", categoria:"Neurologia"},
+    {termo:"Letargia", significado:"Redução do estado de alerta, com sonolência.", categoria:"Neurologia"},
+    {termo:"Confusão mental", significado:"Alteração da atenção, orientação ou pensamento.", categoria:"Neurologia"},
+    {termo:"Convulsão", significado:"Manifestação de atividade elétrica cerebral anormal.", categoria:"Neurologia"},
+    {termo:"Midríase", significado:"Dilatação das pupilas.", categoria:"Neurologia"},
+    {termo:"Miose", significado:"Contração das pupilas.", categoria:"Neurologia"},
+    {termo:"Anisocoria", significado:"Pupilas com diâmetros diferentes.", categoria:"Neurologia"},
+    {termo:"Expectoração", significado:"Eliminação de secreções das vias respiratórias.", categoria:"Respiratório"},
+    {termo:"Hemoptise", significado:"Eliminação de sangue pela tosse, proveniente do trato respiratório.", categoria:"Respiratório"},
+    {termo:"Secreção", significado:"Material produzido e eliminado pelas glândulas ou mucosas.", categoria:"Respiratório"},
+    {termo:"Hipoxemia", significado:"Redução do oxigênio no sangue arterial.", categoria:"Respiratório"},
+    {termo:"Hipóxia", significado:"Oferta insuficiente de oxigênio aos tecidos.", categoria:"Respiratório"},
+    {termo:"Saturação", significado:"Percentual de hemoglobina ligada ao oxigênio.", categoria:"Respiratório"},
+    {termo:"Estertores", significado:"Ruídos respiratórios adventícios, frequentemente associados à presença de líquido ou abertura de pequenas vias aéreas.", categoria:"Respiratório"},
+    {termo:"Sibilos", significado:"Ruídos respiratórios semelhantes a assobios.", categoria:"Respiratório"},
+    {termo:"Roncos", significado:"Ruídos respiratórios graves, geralmente relacionados a secreções nas vias aéreas.", categoria:"Respiratório"},
+    {termo:"Pulso filiforme", significado:"Pulso fino, fraco e de difícil palpação.", categoria:"Cardiologia"},
+    {termo:"Pulso arrítmico", significado:"Pulso com intervalos irregulares.", categoria:"Cardiologia"},
+    {termo:"Palpitação", significado:"Percepção dos batimentos cardíacos.", categoria:"Cardiologia"},
+    {termo:"Perfusão periférica", significado:"Circulação sanguínea nos tecidos periféricos.", categoria:"Cardiologia"},
+    {termo:"Hipoperfusão", significado:"Redução do fluxo sanguíneo para os tecidos.", categoria:"Cardiologia"},
+    {termo:"Isquemia", significado:"Redução do fluxo sanguíneo para determinado tecido.", categoria:"Cardiologia"},
+    {termo:"Infarto", significado:"Lesão ou morte de tecido por falta de irrigação sanguínea.", categoria:"Cardiologia"},
+    {termo:"Deambulação", significado:"Ato de caminhar.", categoria:"Enfermagem"},
+    {termo:"Higienização", significado:"Procedimento de limpeza para redução de sujidades e microrganismos.", categoria:"Enfermagem"},
+    {termo:"Evolução", significado:"Registro da avaliação e das condições clínicas do paciente.", categoria:"Enfermagem"},
+    {termo:"Anamnese", significado:"Coleta de informações sobre histórico e condições de saúde.", categoria:"Enfermagem"},
+    {termo:"Admissão", significado:"Entrada do paciente no serviço ou unidade de saúde.", categoria:"Enfermagem"},
+    {termo:"Alta", significado:"Encerramento da internação ou atendimento, conforme decisão clínica.", categoria:"Enfermagem"},
+    {termo:"Intercorrência", significado:"Evento inesperado ocorrido durante o atendimento.", categoria:"Enfermagem"},
+    {termo:"Prostração", significado:"Estado de abatimento físico ou redução importante da disposição.", categoria:"Enfermagem"},
+    {termo:"Eritema", significado:"Vermelhidão da pele.", categoria:"Enfermagem"},
+    {termo:"Escoriação", significado:"Lesão superficial da pele.", categoria:"Enfermagem"},
+    {termo:"Equimose", significado:"Mancha causada por extravasamento de sangue nos tecidos.", categoria:"Enfermagem"},
+    {termo:"Hematoma", significado:"Acúmulo localizado de sangue nos tecidos.", categoria:"Enfermagem"},
+    {termo:"Necrose", significado:"Morte de células ou tecidos.", categoria:"Enfermagem"},
+    {termo:"Lesão por pressão", significado:"Dano localizado na pele ou tecidos subjacentes, geralmente associado à pressão ou pressão combinada com cisalhamento.", categoria:"Enfermagem"},
+    {termo:"Antissepsia", significado:"Uso de agentes para reduzir microrganismos em tecidos vivos.", categoria:"Enfermagem"},
+    {termo:"Assepsia", significado:"Conjunto de medidas para prevenir contaminação por microrganismos.", categoria:"Enfermagem"},
+    {termo:"Contaminação", significado:"Presença de agentes contaminantes em superfícies, materiais ou tecidos.", categoria:"Enfermagem"},
+    {termo:"Infecção", significado:"Invasão e multiplicação de microrganismos no organismo.", categoria:"Enfermagem"},
+    {termo:"Abcesso", significado:"coleção de pus em cavidade anormal", categoria:"Pele e Feridas"},
+    {termo:"Acrocórdons", significado:"também chamados de “pólipos cutâneos”, são crescimentos exagerados da", categoria:"Pele e Feridas"},
+    {termo:"Afagia", significado:"impossibilidade de deglutir", categoria:"Sintomas"},
+    {termo:"Afasia", significado:"perda da palavra falada, escrita ou mímica, por alterações nos centrosnervosos", categoria:"Sintomas"},
+    {termo:"Afonia", significado:"perda ou diminuição da voz por causas locais", categoria:"Sintomas"},
+    {termo:"Afecção", significado:"estado mórbido, enfermidade", categoria:"Sintomas"},
+    {termo:"Algesia", significado:"sensibilidade à dor", categoria:"Sintomas"},
+    {termo:"Álgico", significado:"relativo à dor, doloroso", categoria:"Sintomas"},
+    {termo:"Analgesia", significado:"perda da sensibilidade para a dor, conservando a sensibilidade tátil", categoria:"Sintomas"},
+    {termo:"Alodinia", significado:"dor de estímulo que normalmente não provoca dor", categoria:"Sintomas"},
+    {termo:"Amaurose", significado:"cegueira", categoria:"Sintomas"},
+    {termo:"Amenorreia", significado:"ausência de menstruação", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Anasarca", significado:"edema bilateral ou edema generalizado", categoria:"Pele e Feridas"},
+    {termo:"Anciloglossia", significado:"encurtamento do frénulo da lingua", categoria:"Enfermagem"},
+    {termo:"Anestesia", significado:"ausência de sensibilidade tátil", categoria:"Neurologia"},
+    {termo:"Anorexia", significado:"perda do apetite", categoria:"Sintomas"},
+    {termo:"Anosmia", significado:"perda do olfato", categoria:"Sintomas"},
+    {termo:"Anóxia", significado:"estado que resulta da insuficiência de oxigênio para satisfazer as necessidades normais dos tecidos", categoria:"Respiratório"},
+    {termo:"Apatia", significado:"falta de sentimento ou interesse, indiferença, insensibilidade", categoria:"Sintomas"},
+    {termo:"Apirexia", significado:"falta de febre, cessação da febre", categoria:"Sinais Vitais"},
+    {termo:"Aproctia", significado:"Ausência ou imperfuração do orifício anal", categoria:"Enfermagem"},
+    {termo:"Arritmia", significado:"irregularidade do ritmo cardíaco (número, intervalo e força das batidas)", categoria:"Cardiologia"},
+    {termo:"Arsenicismo", significado:"Envenenamento crônico pelo arsênio", categoria:"Enfermagem"},
+    {termo:"Arterectomia", significado:"Extirpação de um segmento de artéria", categoria:"Procedimentos"},
+    {termo:"Ascite", significado:"acúmulo anormal de líquidos dentro da cavidade peritoneal", categoria:"Eliminações"},
+    {termo:"Atresia", significado:"ausência ou fechamento do canal auditivo", categoria:"Enfermagem"},
+    {termo:"Atrofia", significado:"perda de massa muscular", categoria:"Pele e Feridas"},
+    {termo:"Bacteremia", significado:"presença de bactérias patogênicas no sangue", categoria:"Infecção e Microbiologia"},
+    {termo:"Bacteriófago", significado:"vírus que pode provocar a destruição das bactérias", categoria:"Infecção e Microbiologia"},
+    {termo:"Baqueteamento digital", significado:"conhecido também por unhas em “vidro de relógio” ou “hipocráticas”. Ocorre quando o ângulo do leito ungueal é maior que 180º. Comumem doenças que comprometem a circulação pulmonar", categoria:"Pele e Feridas"},
+    {termo:"Binaural", significado:"com os dois ouvidos", categoria:"Anatomia"},
+    {termo:"Bipara", significado:"mulher que já ter dois partos", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Blefarite", significado:"inflamação das pálpebras", categoria:"Pele e Feridas"},
+    {termo:"Bócio", significado:"aumento de volume crônico da tireoide que ocorre em algumas regiões domundo com dieta pobre em iodo", categoria:"Enfermagem"},
+    {termo:"Bradisfigmia", significado:"lentidão anormal do pulso", categoria:"Sinais Vitais"},
+    {termo:"Broncoespasmo", significado:"espasmo dos músculos bronquiais", categoria:"Respiratório"},
+    {termo:"Caquexia", significado:"estado morbido caracterizado por magreza extrema, perda de peso,sintomas de debilidade e anemia", categoria:"Sintomas"},
+    {termo:"Calázio", significado:"nódulo arredondado e saliente na pálpebra. É uma infecção ou um cisto deretenção da glândula de meibômio", categoria:"Pele e Feridas"},
+    {termo:"Celulite", significado:"inflamação de tecido conjuntivo subcutâneo frouxo", categoria:"Pele e Feridas"},
+    {termo:"Cistite", significado:"inflamação da bexiga", categoria:"Infecção e Microbiologia"},
+    {termo:"Cisto", significado:"cavidade encapsulada cheia de líquido na derme ou na camada subcutânea,elevando a pele sob tensão", categoria:"Pele e Feridas"},
+    {termo:"Clister", significado:"enema, injeção de líquido no intestino, pelo ânus", categoria:"Procedimentos"},
+    {termo:"Cloasma", significado:"é uma área acastanhada irregular de hiperpigmentação na face", categoria:"Pele e Feridas"},
+    {termo:"Coiloníquia", significado:"unha em forma de colher", categoria:"Pele e Feridas"},
+    {termo:"Coitarca", significado:"idade da primeira atividade sexual", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Conjuntivite", significado:"inflamação da conjuntiva", categoria:"Infecção e Microbiologia"},
+    {termo:"Coma", significado:"estado de estupor profundo com perda total ou quase total da consciência, da sensibilidade e da motilidade voluntária", categoria:"Neurologia"},
+    {termo:"Consciência", significado:"estado geral que nos torna aptos a julgar, refletir e decidir", categoria:"Neurologia"},
+    {termo:"Costotomia", significado:"ressecção das costelas", categoria:"Procedimentos"},
+    {termo:"Cricóide", significado:"em forma de anel", categoria:"Anatomia"},
+    {termo:"Cricotomia", significado:"incisão da cricóide", categoria:"Procedimentos"},
+    {termo:"Criestesia", significado:"sensibilidade anormal do frio", categoria:"Sintomas"},
+    {termo:"Criopricipitado", significado:"fator do sangue para tratamento da hemofilia", categoria:"Cardiologia"},
+    {termo:"Criptoquirdia", significado:"testículos não descidos", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Cureta", significado:"instrumento em forma de colher para raspagem ou curetagem", categoria:"Procedimentos"},
+    {termo:"Dacriocistite", significado:"inflamação do saco lacrimal", categoria:"Infecção e Microbiologia"},
+    {termo:"Desorientação", significado:"estado de confusão mental em que o indivíduo perde as noções delugar e tempo", categoria:"Sintomas"},
+    {termo:"Diplegia", significado:"paralisia de partes similares nos dois lados do corpo. Paralisia bilateral", categoria:"Neurologia"},
+    {termo:"Diplopia", significado:"visão dupla dos objetos devido aos transtornos da coordenação dos músculos motores oculares", categoria:"Sintomas"},
+    {termo:"Disartria", significado:"dificuldade de formar palavras", categoria:"Neurologia"},
+    {termo:"Disfagia", significado:"deglutição dificultosa", categoria:"Sintomas"},
+    {termo:"Disfasia", significado:"dificuldade da compreensão ou expressão da linguagem", categoria:"Neurologia"},
+    {termo:"Dislalia", significado:"é um distúrbio da fala, caracterizado pela dificuldade em articular as palavras. Basicamente consiste na má pronúncia das palavras, seja omitindo ouacrescentando", categoria:"Neurologia"},
+    {termo:"Dismenorreia", significado:"cólica menstrual", categoria:"Sintomas"},
+    {termo:"Dismetria", significado:"incapacidade controlar a distância, a força e a velocidade de uma açãomuscular", categoria:"Neurologia"},
+    {termo:"Dispepsia", significado:"indigestão; dificuldade de digestão", categoria:"Digestivo"},
+    {termo:"Dissolvente", significado:"que dissolve outra substância", categoria:"Enfermagem"},
+    {termo:"Dorsal", significado:"referente a dorso, costas", categoria:"Anatomia"},
+    {termo:"Dorsalgia", significado:"Dor nas costas", categoria:"Sintomas"},
+    {termo:"Dort", significado:"Doença ocupacional relacionada ao trabalho", categoria:"Sintomas"},
+    {termo:"Ducto", significado:"Canal que dá passagem a secreções ou excreções", categoria:"Anatomia"},
+    {termo:"Ectopia", significado:"posição anormal", categoria:"Pele e Feridas"},
+    {termo:"Ectrópio", significado:"afastamento da margem palpebral de sua posição anatômica em contatocom a conjuntiva bulbar; tornando-se evertida", categoria:"Pele e Feridas"},
+    {termo:"Efélides", significado:"pequenas máculas planas de pigmento melanina castanha que ocorremna pele exposta ao sol. Sinônimo de sardas", categoria:"Pele e Feridas"},
+    {termo:"Elastose", significado:"aumento do tecido elástico da pele", categoria:"Pele e Feridas"},
+    {termo:"Empirico", significado:"Não científico. Baseado na prática", categoria:"Enfermagem"},
+    {termo:"Encoprese", significado:"se refere à incontinência fecal na aprendizagem de controle", categoria:"Eliminações"},
+    {termo:"Enoftalmia", significado:"olhos encovados", categoria:"Pele e Feridas"},
+    {termo:"Entérico", significado:"relativo ao intestino", categoria:"Anatomia"},
+    {termo:"Enurese", significado:"incontinência urinária", categoria:"Eliminações"},
+    {termo:"Entrópio", significado:"pálpebra inferior evertida (“para fora”)", categoria:"Pele e Feridas"},
+    {termo:"Epididimite", significado:"inflamação do epidídimo", categoria:"Infecção e Microbiologia"},
+    {termo:"Epifora", significado:"lacrimejamento excessivo", categoria:"Sintomas"},
+    {termo:"Epigastralgia", significado:"dor na região epigástrica", categoria:"Sintomas"},
+    {termo:"Epispádia", significado:"o óstio da uretra se abre na superfície dorsal da glande ou do corpo,sobre um pênis largo, em forma de pá", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Epistaxe", significado:"sangramento nasal", categoria:"Sintomas"},
+    {termo:"Epúlide", significado:"um nódulo não sensível e fibroso da gengiva, que emerge entre os dentes;uma resposta inflamatória à lesão ou hemorragia", categoria:"Pele e Feridas"},
+    {termo:"Erosão", significado:"depressão evidente da pele, porém rasa", categoria:"Pele e Feridas"},
+    {termo:"Escama", significado:"flocos compactados e ressecados de pele, secos ou gordurosos, prateados ou brancos, pele descolamento do excesso de células queratinizadasmortas", categoria:"Pele e Feridas"},
+    {termo:"Esclerodermia", significado:"é um distúrbio crônico do tecido conjuntivo associado com adiminuição do turgor cutâneo, isto é, literalmente “enrijecimento” da pele", categoria:"Pele e Feridas"},
+    {termo:"Esclerose", significado:"enrijecimento", categoria:"Pele e Feridas"},
+    {termo:"Estenose", significado:"estreitamento", categoria:"Pele e Feridas"},
+    {termo:"Estomatite", significado:"inflamação da boca", categoria:"Infecção e Microbiologia"},
+    {termo:"Exoftalmia", significado:"deslocamento do globo ocular para frente e aumento da fenda palpebral(olhos", categoria:"Pele e Feridas"},
+    {termo:"Fasciculada", significado:"contrações involuntárias rápidas e continuas do músculo em repousoou parte do músculo, sem movimento do membro", categoria:"Neurologia"},
+    {termo:"Fascies", significado:"Expressão fisionômica", categoria:"Enfermagem"},
+    {termo:"Febre remitente", significado:"Febre que apresenta melhoras ou diminuição, mas sem chegar adesaparecer", categoria:"Sintomas"},
+    {termo:"Ferida", significado:"solução de continuidade da pele, de mucosas, de serosas, que espontaneamente evolui para cicatrização", categoria:"Pele e Feridas"},
+    {termo:"Filático", significado:"que protege", categoria:"Enfermagem"},
+    {termo:"Filiforme", significado:"fino, em forma de fio", categoria:"Sinais Vitais"},
+    {termo:"Fimose", significado:"o prepúcio não pode ser retraído, formando uma extremidade pontiaguda,com um orifício muito pequeno", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Fissura", significado:"ruptura linear com margens abruptas, estendendo até derme, seca ouúmida", categoria:"Pele e Feridas"},
+    {termo:"Flatulência", significado:"distensão do abdome provocada por gases intestinais", categoria:"Eliminações"},
+    {termo:"Frontal", significado:"relativoa fronte (testa)", categoria:"Anatomia"},
+    {termo:"Flictena", significado:"cavidade elevada contendo líquido maior de 1 cm", categoria:"Pele e Feridas"},
+    {termo:"Foliculite", significado:"infecção superficial dos folículos pilosos", categoria:"Pele e Feridas"},
+    {termo:"Galactorreia", significado:"produção de leite pelas mamas fora do período de lactação", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Gastralgia", significado:"dor no estômago", categoria:"Digestivo"},
+    {termo:"Gastrólito", significado:"Presença de cálculo no estomago", categoria:"Digestivo"},
+    {termo:"Gengivite", significado:"inflamação das gengivas", categoria:"Infecção e Microbiologia"},
+    {termo:"Genuvalgo", significado:"joelhos para dentro", categoria:"Enfermagem"},
+    {termo:"Genuvaro", significado:"pernas arqueadas", categoria:"Enfermagem"},
+    {termo:"Ginecomastia", significado:"alargamento benigno da mama masculina que ocorre quandotecidos periféricos convertem hormônios androgênicos em estrogênicos", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Glicemia", significado:"quota fisiológica de glicose no sangue", categoria:"Sinais Vitais"},
+    {termo:"Glicosúria", significado:"eliminação de açúcar na urina", categoria:"Eliminações"},
+    {termo:"Glossa", significado:"palavra grega que significa língua", categoria:"Digestivo"},
+    {termo:"Glútea", significado:"relativo a nádegas", categoria:"Anatomia"},
+    {termo:"Grumoso", significado:"espesso e viscoso", categoria:"Enfermagem"},
+    {termo:"Gutural", significado:"relativo à garganta", categoria:"Anatomia"},
+    {termo:"Halitose", significado:"mau hálito", categoria:"Enfermagem"},
+    {termo:"Helminto", significado:"verme intestinal", categoria:"Eliminações"},
+    {termo:"Hemácia", significado:"glóbulo vermelho do sangue", categoria:"Cardiologia"},
+    {termo:"Hematémese", significado:"saída de sangue pela boca de origem do trato gastrintestinal (vômito sanguinolento)", categoria:"Digestivo"},
+    {termo:"Hematoquezia", significado:"presença de sangue vivo nas fezes", categoria:"Digestivo"},
+    {termo:"Hemidrose", significado:"suor sanguinolento", categoria:"Enfermagem"},
+    {termo:"Hemiplegia", significado:"paralisia de um lado do corpo", categoria:"Neurologia"},
+    {termo:"Hemostático", significado:"que detém hemorragia", categoria:"Cardiologia"},
+    {termo:"Hifema", significado:"sangue na câmara anterior ocular", categoria:"Cardiologia"},
+    {termo:"Hiperalgesia", significado:"aumento da sensação de dor", categoria:"Neurologia"},
+    {termo:"Hiperestesia", significado:"aumento da sensibilidade tátil", categoria:"Neurologia"},
+    {termo:"Hipermiotonia", significado:"aumento da tonicidade muscular", categoria:"Cardiologia"},
+    {termo:"Hipermotilidade", significado:"aumento exagerado da atividade motora", categoria:"Cardiologia"},
+    {termo:"Hipernatremia", significado:"excesso de sódio no sangue", categoria:"Cardiologia"},
+    {termo:"Hiperoniquia", significado:"espessamento das unhas", categoria:"Pele e Feridas"},
+    {termo:"Hiperopia", significado:"o mesmo que hipermetropia", categoria:"Enfermagem"},
+    {termo:"Hiperosteose", significado:"hipertrofia do tecido ósseo", categoria:"Anatomia"},
+    {termo:"Hiperglicemia", significado:"aumento anormal no nível de glicose do sangue", categoria:"Sinais Vitais"},
+    {termo:"Hiperventilação", significado:"aumento na frequência e na profundidade ventilatórias", categoria:"Respiratório"},
+    {termo:"Hipoalgesia", significado:"diminuição da sensação de dor", categoria:"Neurologia"},
+    {termo:"Hipoestesia", significado:"diminuição da sensibilidade tátil", categoria:"Neurologia"},
+    {termo:"Hipoglicemia", significado:"diminuição do nível normal de glicose do sangue", categoria:"Sinais Vitais"},
+    {termo:"Hipópio", significado:"material purulento na câmara anterior", categoria:"Infecção e Microbiologia"},
+    {termo:"Hiposmia", significado:"diminuição do olfato", categoria:"Neurologia"},
+    {termo:"Hipospádia", significado:"o óstio da uretra se abre na superficie ventral da glande, corpo ou najunção penoescrotal", categoria:"Enfermagem"},
+    {termo:"Hipoventilação", significado:"padrão ventilatório superficial e irregular", categoria:"Respiratório"},
+    {termo:"Hirsutismo", significado:"excesso de pelo corporal nas mulheres, formando um padrão sexualmasculino", categoria:"Enfermagem"},
+    {termo:"Hordéolo", significado:"terçol. É uma infecção estafilocócica localizada na raiz dos folículos, naborda", categoria:"Pele e Feridas"},
+    {termo:"Icterícia", significado:"cor amarelada da pele que indica aumento dos níveis de bilirrubina nosangue", categoria:"Pele e Feridas"},
+    {termo:"Irite", significado:"halo vermelho escuro e profundo ao redor da íris e da córnea", categoria:"Sintomas"},
+    {termo:"Inter", significado:"prefixo que indica “entre”, “no meio” (ex: intercostal-entre duas costelas)", categoria:"Enfermagem"},
+    {termo:"Isocoria", significado:"igualdade no tamanho das pupilas", categoria:"Neurologia"},
+    {termo:"Íris", significado:"membrana circular do olho que apresenta no centro o orifício da pupila", categoria:"Anatomia"},
+    {termo:"Irradiação", significado:"exposição a substâncias que emanam ondas eletromagnéticas", categoria:"Enfermagem"},
+    {termo:"Irrigação", significado:"o mesmo que lavagem", categoria:"Procedimentos"},
+    {termo:"Irrigação vaginal", significado:"lavagem vaginal", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Irrigador", significado:"instrumento para lavagem vaginal ou intestinal", categoria:"Procedimentos"},
+    {termo:"Isso", significado:"prefixo grego que significa “igual”", categoria:"Enfermagem"},
+    {termo:"Isodinâmico", significado:"com a mesma força", categoria:"Enfermagem"},
+    {termo:"Isogamia", significado:"dá-se esse nome quando os dois gametas que se fundem para formar ozigoto têm mesma forma e tamanho, sendo morfologicamente indistingiiiveis", categoria:"Enfermagem"},
+    {termo:"Isolamento", significado:"separação completa de paciente de doença transmissível", categoria:"Infecção e Microbiologia"},
+    {termo:"Isômero", significado:"que têm o mesmo número dos mesmos átomos, mas com diferente disposição molecular.", categoria:"Enfermagem"},
+    {termo:"Isométrico", significado:"do mesmo comprimento", categoria:"Enfermagem"},
+    {termo:"Isomorfo", significado:"da mesma forma", categoria:"Enfermagem"},
+    {termo:"Isotérmico", significado:"da mesma temperatura", categoria:"Sinais Vitais"},
+    {termo:"Isotonia", significado:"igual tensão de duas substâncias ou soluções", categoria:"Enfermagem"},
+    {termo:"Isótopos", significado:"elementos químicos que têm o mesmo número de átomos, a mesma carga elétrica, o mesmo arranjo dos elétrons, as mesmas propriedades quimicas,mas diferem no peso atômico", categoria:"Enfermagem"},
+    {termo:"Isquialgia", significado:"dor no quadril", categoria:"Sintomas"},
+    {termo:"Isquiático", significado:"relativo ao osso ísquio", categoria:"Anatomia"},
+    {termo:"Istmo", significado:"a parte mais estreita, o gargalo de um órgão", categoria:"Anatomia"},
+    {termo:"Ite", significado:"sufixo que significa “inflamação”", categoria:"Infecção e Microbiologia"},
+    {termo:"Jejuno", significado:"A segunda porção do intestino delgado", categoria:"Anatomia"},
+    {termo:"Laceração", significado:"dilaceração", categoria:"Enfermagem"},
+    {termo:"Leuconíquia", significado:"também conhecido por linhas de Muehrcke. Presença de linhasbrancas transversais nas unhas", categoria:"Pele e Feridas"},
+    {termo:"Linfadenopatia", significado:"aumento de volume dos linfono- dos (> 1 cm) por infecção, alergiaou neoplasia", categoria:"Infecção e Microbiologia"},
+    {termo:"Lipotímia", significado:"perda súbita dos movimentos, conservando-se a respiração e a", categoria:"Neurologia"},
+    {termo:"Liquenificação", significado:"parece com a superfície de um musgo e é resultado da escarificação prolongada e intensa que eventualmente espessa a pele e produzgrupos de pápulas firmemente agrupadas", categoria:"Pele e Feridas"},
+    {termo:"Lombar", significado:"relativo a lombo, ou região que fica ao lado da espinha, sobre os rins, entreo tórax e", categoria:"Anatomia"},
+    {termo:"Macrocefalia", significado:"cabeça anormalmente grande", categoria:"Neurologia"},
+    {termo:"Macroglossia", significado:"língua aumentada", categoria:"Enfermagem"},
+    {termo:"Macrotia", significado:"orelhas maiores que 10 cm verticalmente", categoria:"Enfermagem"},
+    {termo:"Macula", significado:"é apenas uma alteração na cor da pele, plana e circunscrita, de menos de lcm", categoria:"Pele e Feridas"},
+    {termo:"Mastalgia", significado:"dor nas mamas", categoria:"Sintomas"},
+    {termo:"Mastite", significado:"inflamação das mamas", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Menarca", significado:"idade da primeira menstruação", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Menopausa", significado:"idade da última menstruação", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Menoplegia", significado:"paralisia de um membro", categoria:"Neurologia"},
+    {termo:"Menorragia", significado:"períodos menstruais com fluxo intenso, prolongado, ou com as duas características", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Metrorragia", significado:"sangramentos acíclicos do útero fora do ciclo menstrual normal", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Microcefalia", significado:"cabeça anormalmente pequena", categoria:"Neurologia"},
+    {termo:"Microtia", significado:"orelhas menores que 4 cm verticalmente", categoria:"Enfermagem"},
+    {termo:"Mioplegia", significado:"paralisia muscular", categoria:"Neurologia"},
+    {termo:"Mucopurulento", significado:"que contém muco e pus", categoria:"Enfermagem"},
+    {termo:"Neuralgia", significado:"dor viva e paroxistica a seguir o trajeto de um nervo", categoria:"Sintomas"},
+    {termo:"Neurorrafia", significado:"sutura de um nervo", categoria:"Procedimentos"},
+    {termo:"Nictúria", significado:"inversão do ritmo urinário com maior produção de urina à noite", categoria:"Eliminações"},
+    {termo:"Nistagmo", significado:"movimento ocular oscilatório fino, mais bem visto ao redor da íris", categoria:"Neurologia"},
+    {termo:"Noctúria", significado:"aumento da frequência de micções à noite", categoria:"Eliminações"},
+    {termo:"Nódulo", significado:"lesão primária da pele sólida, elevada, duro ou macio, maior que | cm emais", categoria:"Pele e Feridas"},
+    {termo:"Odinofagia", significado:"deglutição dolorosa", categoria:"Sintomas"},
+    {termo:"Odontalgia", significado:"dor de dente", categoria:"Sintomas"},
+    {termo:"Onicofagia", significado:"hábito de roer as unhas", categoria:"Pele e Feridas"},
+    {termo:"Onicólise", significado:"infecção fúngica lenta e persistente das unhas dos dedos das mãos e,mais frequentemente, dos dedos dos pés, comum nos adultos mais velhos", categoria:"Pele e Feridas"},
+    {termo:"Orquite", significado:"inflamação aguda do testículo", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Otalgia", significado:"dor de ouvido", categoria:"Sintomas"},
+    {termo:"Otorragia", significado:"hemorragia do ouvido", categoria:"Sintomas"},
+    {termo:"Otorreia", significado:"saída anormal de secreção pelo ouvido externo", categoria:"Enfermagem"},
+    {termo:"Pápula", significado:"é uma lesão primária da pele, sólida, elevada, circunscrita, com diâmetromenor que 1 cm causada pelo espessamento superficial da epiderme", categoria:"Pele e Feridas"},
+    {termo:"Parafimose", significado:"o prepúcio é retraído e fixo", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Paralisia", significado:"perda da função motora", categoria:"Neurologia"},
+    {termo:"Paraplegia", significado:"paralisia de ambas extremidades inferiores do corpo", categoria:"Neurologia"},
+    {termo:"Parenteral", significado:"que se realiza por via distinta da digestiva ou intestinal", categoria:"Procedimentos"},
+    {termo:"Paresia", significado:"é uma paralisia parcial ou incompleta", categoria:"Neurologia"},
+    {termo:"Paroniquia", significado:"inflamação vermelha, inchada e dolorosa das dobras ungueais", categoria:"Pele e Feridas"},
+    {termo:"Pelve", significado:"bacia (anel ósseo em forma de bacia)", categoria:"Anatomia"},
+    {termo:"Períneo", significado:"espaço compreendido entre o ânus e os órgãos genitais externos", categoria:"Anatomia"},
+    {termo:"Petéquias", significado:"pequenas hemorragias puntiformes de 1 a 3 mm, arredondadas ediscretas, com cor púrpura ou marrom", categoria:"Pele e Feridas"},
+    {termo:"Pica", significado:"alotriofagia, alotriogeusia ou perversão do apetite; apetite por coisas ou substâncias não alimentares", categoria:"Digestivo"},
+    {termo:"Pinguécula", significado:"nódulos elevados e amarelados que surgem a partir de um espessamento da conjuntiva bulbar pela exposição prolongada ao sol, vento epoeira", categoria:"Pele e Feridas"},
+    {termo:"Pirexia", significado:"aumento da temperatura corporal acima dos níveis normais para o", categoria:"Sinais Vitais"},
+    {termo:"Pirose", significado:"azia", categoria:"Sintomas"},
+    {termo:"Piúria", significado:"presença de pus na urina", categoria:"Eliminações"},
+    {termo:"Placa", significado:"são pápulas que coalescem para formar uma elevação na superfície maiorque 1 cm", categoria:"Pele e Feridas"},
+    {termo:"Polidactilia", significado:"presença de digitos extras", categoria:"Enfermagem"},
+    {termo:"Polução", significado:"emissão involuntária de esperma", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Precordial", significado:"situado ou que ocorre diante do coração; epigástrio e superfície anteriorda parte inferior do tórax", categoria:"Cardiologia"},
+    {termo:"Precordialgia", significado:"dor na região precordial", categoria:"Cardiologia"},
+    {termo:"Presbiacusia", significado:"é uma perda sensorioneural gradual causada pela degeneração naorelha interna que progride lentamente após a quinta década", categoria:"Enfermagem"},
+    {termo:"Presbiopia", significado:"diminuição do poder de acomodação visual com o envelhecimento", categoria:"Enfermagem"},
+    {termo:"Pterígio", significado:"uma asa triangular opaca de conjuntiva bulbar que cresce em direção aocentro da córnea", categoria:"Enfermagem"},
+    {termo:"Ptialismo", significado:"salivação exagerada", categoria:"Digestivo"},
+    {termo:"Púrpura", significado:"machas confluentes e extensas de petéquias e equimoses, < 3 mm,planas, vermelhas até púrpuras, hemorragia macular", categoria:"Pele e Feridas"},
+    {termo:"Pústula", significado:"lesão primária da pele que possui líquido turvo (pus) na cavidade,", categoria:"Pele e Feridas"},
+    {termo:"Queilite", significado:"rachadura nos cantos da boca", categoria:"Digestivo"},
+    {termo:"Queloide", significado:"é uma cicatriz hipertrófica onde o nível da pele resultante está elevadopelo excesso de tecido cicatricial, que invade além do local original da lesão", categoria:"Pele e Feridas"},
+    {termo:"Queratose", significado:"são áreas elevadas e espessadas de pigmentação que aparecem comcrostas,", categoria:"Pele e Feridas"},
+    {termo:"Regurgitação", significado:"retorno dos alimentos do estômago ou do esôfago 4 boca, semesforço de vômito", categoria:"Eliminações"},
+    {termo:"Ressecamento", significado:"obstipação, prisão de ventre habitual", categoria:"Eliminações"},
+    {termo:"Rinorreia", significado:"corrimento excessivo de muco nasal", categoria:"Sintomas"},
+    {termo:"Seborréia", significado:"secreção exagerada das glândulas sebáceas, especialmente do courocabeludo", categoria:"Pele e Feridas"},
+    {termo:"Sialorreia", significado:"salivação excessiva", categoria:"Digestivo"},
+    {termo:"Sindactilia", significado:"presença de dedos ligados", categoria:"Enfermagem"},
+    {termo:"Sinusite", significado:"inflamação dos seios paranasais", categoria:"Infecção e Microbiologia"},
+    {termo:"Telangiectasia", significado:"vasos sanguíneos dilatados e permanentemente aumentados quesão visíveis na superfície da pele", categoria:"Pele e Feridas"},
+    {termo:"Tricotilomania", significado:"perda traumática autoinduzida do cabelo, usualmente comoresultado do retorcimento ou arrancamento compulsivo", categoria:"Enfermagem"},
+    {termo:"Torpor", significado:"estado de sonolência, de apatia", categoria:"Neurologia"},
+    {termo:"Ulcera", significado:"depressão da pele mais profunda estendendo-se até a derme, formairregular, pode sangrar; deixa cicatriz quando regenera", categoria:"Pele e Feridas"},
+    {termo:"Uretrite", significado:"inflamação da uretra", categoria:"Infecção e Microbiologia"},
+    {termo:"Urticária", significado:"pápulas que coalescem para forma uma extensa reação, intensamentepruriginosa", categoria:"Pele e Feridas"},
+    {termo:"Vasoconstrictor", significado:"diz-se do agente ou nervo que estreita o calibre dos vasos", categoria:"Cardiologia"},
+    {termo:"Vasodilatador", significado:"diz-se do agente ou nervo que aumenta o calibre dos vasos", categoria:"Cardiologia"},
+    {termo:"Vesical", significado:"referente à bexiga", categoria:"Enfermagem"},
+    {termo:"Vesícula", significado:"cavidade elevada contendo líquido livre com até 1 em", categoria:"Pele e Feridas"},
+    {termo:"Volemia", significado:"nome com que também se conhece a massa total do sangue", categoria:"Cardiologia"},
+    {termo:"Vulva", significado:"órgão sexual feminino mais externo", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Vulvite", significado:"inflamação da vulva", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Vulvovaginal", significado:"referente à vulva e à vagina", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Vulvovaginite", significado:"inflamação da vulva e da vagina", categoria:"Ginecologia e Obstetrícia"},
+    {termo:"Xantelasma", significado:"são placas elevadas, amareladas, flexíveis, que ocorrem sobre aspálpebras superiores no canto interno", categoria:"Pele e Feridas"},
+    {termo:"Xantose", significado:"coloração amarelada da pele", categoria:"Pele e Feridas"},
+    {termo:"Xerodermia", significado:"pele seca", categoria:"Pele e Feridas"},
+    {termo:"Xerofagia", significado:"dieta seca", categoria:"Enfermagem"},
+    {termo:"Xeroftalmia", significado:"olhos secos", categoria:"Neurologia"},
+    {termo:"Xerostomia", significado:"boca seca", categoria:"Digestivo"},
+    {termo:"Xifóide", significado:"apêndice osteocartilaginoso que remata o esterno na parte inferior", categoria:"Anatomia"},
+    {termo:"Zigoma", significado:"nome do osso malar (osso que liga estruturas da face)", categoria:"Anatomia"},
+    {termo:"Zumbido", significado:"barulho nos ouvidos, como um tinido, um burburinho", categoria:"Sintomas"}
+];
+
+// NORMALIZAR TEXTO
+function normalizarTexto(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+// FILTRAR TERMOS
+function filtrarTermos() {
+
+    const pesquisa = normalizarTexto(
+        document.getElementById("pesquisaTermos").value
+    );
+
+    const categoria =
+        document.getElementById("categoriaTermos").value;
+
+    const lista = document.getElementById("listaTermos");
+
+    lista.innerHTML = "";
+
+    const filtrados = termosEnfermagem.filter(item => {
+
+        const termo = normalizarTexto(item.termo);
+        const significado = normalizarTexto(item.significado);
+
+        const correspondePesquisa =
+            termo.includes(pesquisa) ||
+            significado.includes(pesquisa);
+
+        const correspondeCategoria =
+            categoria === "" || item.categoria === categoria;
+
+        return correspondePesquisa && correspondeCategoria;
+    });
+
+    document.getElementById("totalTermos").textContent =
+        filtrados.length + " termos encontrados";
+
+    document.getElementById("semTermos").style.display =
+        filtrados.length === 0 ? "block" : "none";
+
+    filtrados.forEach(item => {
+
+        const card = document.createElement("div");
+        card.className = "card-termo";
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = item.termo;
+
+        const descricao = document.createElement("p");
+        descricao.textContent = item.significado;
+
+        const categoriaCard = document.createElement("span");
+        categoriaCard.className = "categoria-card";
+        categoriaCard.textContent = item.categoria;
+
+        card.appendChild(titulo);
+        card.appendChild(descricao);
+        card.appendChild(categoriaCard);
+
+        lista.appendChild(card);
+    });
+}
+
+// LIMPAR PESQUISA
+function limparBuscaTermos() {
+
+    document.getElementById("pesquisaTermos").value = "";
+    document.getElementById("categoriaTermos").value = "";
+
+    filtrarTermos();
+}
+
+// INICIAR LISTAGEM
+filtrarTermos();
 
 </script>
 
